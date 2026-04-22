@@ -8,7 +8,7 @@ interface TeamMember {
   name: string;
   role: string;
 }
-
+ 
 interface TeamSectionProps {
   members?: TeamMember[];
   sectionClass?: string;
