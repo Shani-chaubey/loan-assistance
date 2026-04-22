@@ -217,6 +217,46 @@ export const ProcessStep =
 export const Partner =
   mongoose.models.Partner ?? mongoose.model("Partner", partnerSchema);
 
+// ── Form Field Config ─────────────────────────────────────
+const formFieldSchema = new Schema(
+  {
+    key:         { type: String, required: true, unique: true },
+    label:       { type: String, required: true },
+    placeholder: { type: String, default: "" },
+    type:        { type: String, enum: ["text", "email", "number"], default: "text" },
+    required:    { type: Boolean, default: false },
+    enabled:     { type: Boolean, default: true },
+    order:       { type: Number, default: 0 },
+  },
+  { timestamps: true },
+);
+
+export const FormField =
+  mongoose.models.FormField ?? mongoose.model("FormField", formFieldSchema);
+
+export const FORM_FIELD_SEEDS = [
+  { key: "name",               label: "Full Name",            placeholder: "Your full name",         type: "text",   required: true,  enabled: true, order: 1  },
+  { key: "email",              label: "Email Address",        placeholder: "Your email address",     type: "email",  required: true,  enabled: true, order: 2  },
+  { key: "phone",              label: "Phone Number",         placeholder: "Phone no.",              type: "text",   required: true,  enabled: true, order: 3  },
+  { key: "amount",             label: "Loan Amount ($)",      placeholder: "Loan amount ($)",        type: "number", required: true,  enabled: true, order: 4  },
+  { key: "purpose",            label: "Purpose of Loan",      placeholder: "Purpose of loan",        type: "text",   required: true,  enabled: true, order: 5  },
+  { key: "gender",             label: "Gender",               placeholder: "Gender",                 type: "text",   required: false, enabled: true, order: 6  },
+  { key: "birth",              label: "Date of Birth",        placeholder: "Date of birth",          type: "text",   required: false, enabled: true, order: 7  },
+  { key: "maritalStatus",      label: "Marital Status",       placeholder: "Marital status",         type: "text",   required: false, enabled: true, order: 8  },
+  { key: "dependants",         label: "Dependants",           placeholder: "Dependants",             type: "text",   required: false, enabled: true, order: 9  },
+  { key: "city",               label: "Town / City",          placeholder: "Town/City",              type: "text",   required: false, enabled: true, order: 10 },
+  { key: "street",             label: "Street",               placeholder: "Street",                 type: "text",   required: false, enabled: true, order: 11 },
+  { key: "houseName",          label: "House Name",           placeholder: "House name",             type: "text",   required: false, enabled: true, order: 12 },
+  { key: "homeTown",           label: "Home Town",            placeholder: "Home town",              type: "text",   required: false, enabled: true, order: 13 },
+  { key: "timeAtAddress",      label: "Time at Address",      placeholder: "Time at address",        type: "text",   required: false, enabled: true, order: 14 },
+  { key: "timeAtAddress2",     label: "Time at Address 2",    placeholder: "Time at address 2",      type: "text",   required: false, enabled: true, order: 15 },
+  { key: "employmentStatus",   label: "Employment Status",    placeholder: "Employment status",      type: "text",   required: false, enabled: true, order: 16 },
+  { key: "employerName",       label: "Employer Name",        placeholder: "Employer name",          type: "text",   required: false, enabled: true, order: 17 },
+  { key: "employmentIndustry", label: "Employment Industry",  placeholder: "Employment industry",    type: "text",   required: false, enabled: true, order: 18 },
+  { key: "employmentLength",   label: "Employment Length",    placeholder: "Employment length",      type: "text",   required: false, enabled: true, order: 19 },
+  { key: "income",             label: "Monthly Income ($)",   placeholder: "Monthly income",         type: "number", required: false, enabled: true, order: 20 },
+] as const;
+
 // ── Chatbot Q&A ───────────────────────────────────────────
 const chatbotQASchema = new Schema(
   {

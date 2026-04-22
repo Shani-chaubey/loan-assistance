@@ -17,8 +17,10 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB();
     const body = await req.json();
-    if (!body?.name || !body?.email || !body?.phone || !body?.purpose || !Number(body?.amount)) {
-      return err("Name, email, phone, purpose and amount are required", 400);
+    const missingText = ["name", "email", "phone", "purpose"].filter((k) => !body?.[k]?.toString().trim());
+    if (missingText.length || !Number(body?.amount)) {
+      const all = [...missingText, ...(!Number(body?.amount) ? ["amount"] : [])];
+      return err(`Required fields missing: ${all.join(", ")}`, 400);
     }
     const doc = await Application.create({
       ...body,

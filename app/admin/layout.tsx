@@ -17,6 +17,7 @@ const navItems = [
   { href: "/admin/chatbot",         icon: "icofont-chat",              label: "Chatbot Q&A" },
   { href: "/admin/chat-leads",      icon: "icofont-contacts",          label: "Chat Leads" },
   { href: "/admin/applications",    icon: "icofont-paper",             label: "Applications" },
+  { href: "/admin/form-fields",     icon: "icofont-ui-form",           label: "Form Fields" },
   { href: "/admin/settings",        icon: "icofont-settings-alt",      label: "Settings" },
 ];
 

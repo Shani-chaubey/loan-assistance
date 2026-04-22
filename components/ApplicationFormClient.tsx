@@ -1,34 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const fields = [
-  { name: "amount",        type: "number", placeholder: "Loan amount ($)", required: true },
-  { name: "purpose",       type: "text",   placeholder: "Purpose of loan", required: true },
-  { name: "gender",        type: "text",   placeholder: "Gender" },
-  { name: "birth",         type: "text",   placeholder: "Date of birth" },
-  { name: "name",          type: "text",   placeholder: "Name", required: true },
-  { name: "email",         type: "email",  placeholder: "Email", required: true },
-  { name: "status",        type: "text",   placeholder: "Marital status" },
-  { name: "phone",         type: "text",   placeholder: "Phone no.", required: true },
-  { name: "dependants",    type: "text",   placeholder: "Dependants" },
-  { name: "city",          type: "text",   placeholder: "Town/City" },
-  { name: "street",        type: "text",   placeholder: "Street" },
-  { name: "house_name",    type: "text",   placeholder: "House name" },
-  { name: "home_town",     type: "text",   placeholder: "Home town" },
-  { name: "time_address",  type: "text",   placeholder: "Time at address" },
-  { name: "time_address2", type: "text",   placeholder: "Time at address 2" },
-  { name: "emp_status",    type: "text",   placeholder: "Employment status" },
-  { name: "emp_name",      type: "text",   placeholder: "Employer name" },
-  { name: "emp_industrie", type: "text",   placeholder: "Employment industry" },
-  { name: "emp_length",    type: "text",   placeholder: "Employment length" },
-  { name: "income",        type: "number", placeholder: "Monthly income" },
-];
+interface FieldConfig {
+  _id: string;
+  key: string;
+  label: string;
+  placeholder: string;
+  type: string;
+  required: boolean;
+  enabled: boolean;
+  order: number;
+}
 
 export default function ApplicationFormClient() {
-  const [formData, setFormData] = useState<Record<string, string>>({});
+  const [fields, setFields]       = useState<FieldConfig[]>([]);
+  const [formData, setFormData]   = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError]         = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/form-fields")
+      .then((r) => r.json())
+      .then((r) => setFields(r.data ?? []));
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((d) => ({ ...d, [e.target.name]: e.target.value }));
@@ -37,79 +33,143 @@ export default function ApplicationFormClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setSubmitting(true);
+
+    const payload: Record<string, string | number> = {};
+    fields.forEach((f) => {
+      payload[f.key] =
+        f.type === "number"
+          ? Number(formData[f.key]) || 0
+          : formData[f.key]?.trim() ?? "";
+    });
+    // ensure loanType mirrors purpose for backwards compat
+    if (payload.purpose) payload.loanType = payload.purpose;
+
     try {
       const response = await fetch("/api/admin/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name?.trim() ?? "",
-          email: formData.email?.trim() ?? "",
-          phone: formData.phone?.trim() ?? "",
-          loanType: formData.purpose?.trim() || "Personal Loan",
-          purpose: formData.purpose?.trim() ?? "",
-          amount: Number(formData.amount) || 0,
-          gender: formData.gender?.trim() ?? "",
-          birth: formData.birth?.trim() ?? "",
-          maritalStatus: formData.status?.trim() ?? "",
-          dependants: formData.dependants?.trim() ?? "",
-          city: formData.city?.trim() ?? "",
-          street: formData.street?.trim() ?? "",
-          houseName: formData.house_name?.trim() ?? "",
-          homeTown: formData.home_town?.trim() ?? "",
-          timeAtAddress: formData.time_address?.trim() ?? "",
-          timeAtAddress2: formData.time_address2?.trim() ?? "",
-          employmentStatus: formData.emp_status?.trim() ?? "",
-          employerName: formData.emp_name?.trim() ?? "",
-          employmentIndustry: formData.emp_industrie?.trim() ?? "",
-          employmentLength: formData.emp_length?.trim() ?? "",
-          income: Number(formData.income) || 0,
-        }),
+        body: JSON.stringify(payload),
       });
-      const payload = await response.json().catch(() => null);
-      if (!response.ok || payload?.success === false) {
-        setError(payload?.message ?? "Submission failed. Please try again.");
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.success === false) {
+        setError(result?.message ?? "Submission failed. Please try again.");
+        setSubmitting(false);
         return;
       }
       setSubmitted(true);
     } catch {
       setError("Submission failed. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
   if (submitted)
     return (
-      <div style={{ textAlign: "center", padding: "48px 0" }}>
-        <i className="icofont-check-circled" style={{ fontSize: 56, color: "#27ae60" }}></i>
-        <h3 style={{ marginTop: 16 }}>Application submitted successfully!</h3>
-        <p>Our team will contact you within 24 hours.</p>
+      <div style={{ textAlign: "center", padding: "56px 24px" }}>
+        <div style={{
+          width: 80, height: 80, borderRadius: "50%",
+          background: "linear-gradient(135deg,#27ae60,#2ecc71)",
+          display: "inline-flex", alignItems: "center", justifyContent: "center",
+          marginBottom: 20, boxShadow: "0 8px 24px rgba(39,174,96,0.30)",
+        }}>
+          <i className="icofont-check-circled" style={{ fontSize: 38, color: "#fff" }}></i>
+        </div>
+        <h3 style={{ fontSize: 22, fontWeight: 800, color: "#1a1a2e", marginBottom: 8 }}>
+          Application Submitted!
+        </h3>
+        <p style={{ color: "#666", maxWidth: 380, margin: "0 auto" }}>
+          Thank you! Our team will review your application and contact you within 24 hours.
+        </p>
+      </div>
+    );
+
+  if (fields.length === 0)
+    return (
+      <div style={{ textAlign: "center", padding: "40px 24px", color: "#aaa" }}>
+        Loading form…
       </div>
     );
 
   return (
-    <form className="applicationForm row" onSubmit={handleSubmit}>
-      {fields.map((field) => (
-        <div key={field.name} className="col-lg-3 col-md-4">
-          <input
-            type={field.type}
-            step={field.type === "number" ? "any" : undefined}
-            name={field.name}
-            placeholder={field.placeholder}
-            value={formData[field.name] ?? ""}
-            onChange={handleChange}
-            required={Boolean(field.required)}
-          />
-        </div>
-      ))}
-      <div className="col-lg-12 col-md-12">
-        <button name="submit" type="submit" className="common_btn">
-          Apply Now
-        </button>
+    <div style={{ padding: "8px 0" }}>
+      {/* Header */}
+      <div style={{ marginBottom: 28, textAlign: "center" }}>
+        <p style={{ color: "#888", fontSize: 14, margin: 0 }}>
+          Fields marked with <span style={{ color: "#e53935", fontWeight: 700 }}>*</span> are required
+        </p>
       </div>
-      {error && (
-        <div className="col-lg-12 col-md-12" style={{ marginTop: 12 }}>
-          <p style={{ color: "#e53935", marginBottom: 0 }}>{error}</p>
+
+      <form onSubmit={handleSubmit} noValidate>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: "18px 20px",
+        }}>
+          {fields.map((field) => (
+            <div key={field.key} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <label style={{ fontSize: 13, fontWeight: 600, color: "#444", letterSpacing: 0.2 }}>
+                {field.label}
+                {field.required && (
+                  <span style={{ color: "#e53935", marginLeft: 3, fontWeight: 700 }}>*</span>
+                )}
+              </label>
+              <input
+                type={field.type}
+                step={field.type === "number" ? "any" : undefined}
+                name={field.key}
+                placeholder={field.placeholder}
+                value={formData[field.key] ?? ""}
+                onChange={handleChange}
+                required={field.required}
+                style={{
+                  border: "1.5px solid #dde1f0",
+                  borderRadius: 10,
+                  padding: "11px 14px",
+                  fontSize: 14,
+                  color: "#222",
+                  background: "#fafbff",
+                  outline: "none",
+                  transition: "border-color 0.2s, box-shadow 0.2s",
+                  width: "100%",
+                  boxSizing: "border-box",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#8180e0";
+                  e.target.style.boxShadow = "0 0 0 3px rgba(129,128,224,0.12)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "#dde1f0";
+                  e.target.style.boxShadow = "none";
+                }}
+              />
+            </div>
+          ))}
         </div>
-      )}
-    </form>
+
+        {error && (
+          <div style={{
+            marginTop: 20, padding: "12px 16px", borderRadius: 10,
+            background: "rgba(229,57,53,0.08)", border: "1px solid rgba(229,57,53,0.20)",
+            color: "#e53935", fontSize: 14, display: "flex", alignItems: "center", gap: 8,
+          }}>
+            <i className="icofont-warning-alt"></i>
+            {error}
+          </div>
+        )}
+
+        <div style={{ marginTop: 28, textAlign: "center" }}>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="common_btn"
+            style={{ opacity: submitting ? 0.7 : 1, cursor: submitting ? "not-allowed" : "pointer", minWidth: 180 }}
+          >
+            {submitting ? "Submitting…" : "Apply Now"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
