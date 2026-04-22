@@ -8,7 +8,23 @@ interface App {
   email: string;
   phone: string;
   loanType: string;
+  purpose: string;
   amount: number;
+  gender: string;
+  birth: string;
+  maritalStatus: string;
+  dependants: string;
+  city: string;
+  street: string;
+  houseName: string;
+  homeTown: string;
+  timeAtAddress: string;
+  timeAtAddress2: string;
+  employmentStatus: string;
+  employerName: string;
+  employmentIndustry: string;
+  employmentLength: string;
+  income: number;
   message: string;
   status: string;
   createdAt: string;
@@ -28,6 +44,7 @@ export default function AdminApplicationsPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [toast, setToast] = useState<string | null>(null);
+  const [editingApp, setEditingApp] = useState<App | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/applications")
@@ -47,6 +64,32 @@ export default function AdminApplicationsPage() {
     await fetch(`/api/admin/applications/${id}`, { method: "DELETE" });
     setApps(prev => prev.filter(a => a._id !== id));
     setToast("Deleted");
+    setTimeout(() => setToast(null), 2500);
+  };
+
+  const updateField = (key: keyof App, value: string) => {
+    if (!editingApp) return;
+    setEditingApp({
+      ...editingApp,
+      [key]: key === "amount" || key === "income" ? Number(value) || 0 : value,
+    });
+  };
+
+  const saveEdit = async () => {
+    if (!editingApp) return;
+    const response = await fetch(`/api/admin/applications/${editingApp._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editingApp),
+    });
+    if (!response.ok) {
+      setToast("Failed to update application");
+      setTimeout(() => setToast(null), 2500);
+      return;
+    }
+    setApps(prev => prev.map(a => (a._id === editingApp._id ? editingApp : a)));
+    setEditingApp(null);
+    setToast("Application updated");
     setTimeout(() => setToast(null), 2500);
   };
 
@@ -84,7 +127,7 @@ export default function AdminApplicationsPage() {
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "#f8f8fb" }}>
-                {["Name", "Contact", "Loan Type", "Amount", "Status", "Date", "Actions"].map(h => (
+                {["Name", "Contact", "Purpose", "Amount", "Status", "Date", "Actions"].map(h => (
                   <th key={h} style={{ padding: "12px 16px", textAlign: "left", fontSize: 12, fontWeight: 700, color: "#888", textTransform: "uppercase", letterSpacing: 0.5 }}>{h}</th>
                 ))}
               </tr>
@@ -100,7 +143,7 @@ export default function AdminApplicationsPage() {
                     <div>{app.email}</div>
                     <div style={{ color: "#aaa" }}>{app.phone}</div>
                   </td>
-                  <td style={{ padding: "12px 16px", fontSize: 13 }}>{app.loanType}</td>
+                  <td style={{ padding: "12px 16px", fontSize: 13 }}>{app.purpose || app.loanType}</td>
                   <td style={{ padding: "12px 16px", fontSize: 13 }}>{app.amount ? `$${app.amount.toLocaleString()}` : "—"}</td>
                   <td style={{ padding: "12px 16px" }}>
                     <select
@@ -115,12 +158,45 @@ export default function AdminApplicationsPage() {
                     {new Date(app.createdAt).toLocaleDateString()}
                   </td>
                   <td style={{ padding: "12px 16px" }}>
+                    <button onClick={() => setEditingApp(app)} style={{ border: "none", background: "rgba(33,150,243,0.10)", color: "#2196f3", padding: "5px 12px", borderRadius: 7, cursor: "pointer", fontWeight: 600, fontSize: 12, marginRight: 8 }}>Edit</button>
                     <button onClick={() => handleDelete(app._id)} style={{ border: "none", background: "rgba(229,57,53,0.10)", color: "#e53935", padding: "5px 12px", borderRadius: 7, cursor: "pointer", fontWeight: 600, fontSize: 12 }}>Delete</button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {editingApp && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.35)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+          <div style={{ background: "#fff", borderRadius: 14, width: "100%", maxWidth: 960, maxHeight: "90vh", overflowY: "auto", padding: 24 }}>
+            <h3 style={{ marginTop: 0, marginBottom: 16 }}>Edit Application</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+              {[
+                ["name", "Name"], ["email", "Email"], ["phone", "Phone"],
+                ["purpose", "Purpose"], ["amount", "Amount"], ["gender", "Gender"],
+                ["birth", "Date of Birth"], ["maritalStatus", "Marital Status"], ["dependants", "Dependants"],
+                ["city", "City"], ["street", "Street"], ["houseName", "House Name"],
+                ["homeTown", "Home Town"], ["timeAtAddress", "Time at Address"], ["timeAtAddress2", "Time at Address 2"],
+                ["employmentStatus", "Employment Status"], ["employerName", "Employer Name"],
+                ["employmentIndustry", "Employment Industry"], ["employmentLength", "Employment Length"], ["income", "Income"],
+              ].map(([key, label]) => (
+                <label key={key} style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 12, color: "#666" }}>
+                  {label}
+                  <input
+                    value={String(editingApp[key as keyof App] ?? "")}
+                    onChange={(e) => updateField(key as keyof App, e.target.value)}
+                    style={{ border: "1px solid #ddd", borderRadius: 8, padding: "8px 10px" }}
+                  />
+                </label>
+              ))}
+            </div>
+            <div style={{ marginTop: 18, display: "flex", justifyContent: "flex-end", gap: 8 }}>
+              <button onClick={() => setEditingApp(null)} style={{ border: "1px solid #ddd", background: "#fff", color: "#444", padding: "8px 14px", borderRadius: 8, cursor: "pointer" }}>Cancel</button>
+              <button onClick={saveEdit} style={{ border: "none", background: "#27ae60", color: "#fff", padding: "8px 14px", borderRadius: 8, cursor: "pointer", fontWeight: 600 }}>Save</button>
+            </div>
+          </div>
         </div>
       )}
     </div>

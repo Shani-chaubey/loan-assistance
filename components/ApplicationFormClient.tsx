@@ -3,14 +3,14 @@
 import { useState } from "react";
 
 const fields = [
-  { name: "amount",        type: "number", placeholder: "Loan amount ($)" },
-  { name: "purpose",       type: "text",   placeholder: "Purpose of loan" },
+  { name: "amount",        type: "number", placeholder: "Loan amount ($)", required: true },
+  { name: "purpose",       type: "text",   placeholder: "Purpose of loan", required: true },
   { name: "gender",        type: "text",   placeholder: "Gender" },
   { name: "birth",         type: "text",   placeholder: "Date of birth" },
-  { name: "name",          type: "text",   placeholder: "Name" },
-  { name: "email",         type: "email",  placeholder: "Email" },
+  { name: "name",          type: "text",   placeholder: "Name", required: true },
+  { name: "email",         type: "email",  placeholder: "Email", required: true },
   { name: "status",        type: "text",   placeholder: "Marital status" },
-  { name: "phone",         type: "text",   placeholder: "Phone no." },
+  { name: "phone",         type: "text",   placeholder: "Phone no.", required: true },
   { name: "dependants",    type: "text",   placeholder: "Dependants" },
   { name: "city",          type: "text",   placeholder: "Town/City" },
   { name: "street",        type: "text",   placeholder: "Street" },
@@ -28,6 +28,7 @@ const fields = [
 export default function ApplicationFormClient() {
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((d) => ({ ...d, [e.target.name]: e.target.value }));
@@ -35,15 +36,43 @@ export default function ApplicationFormClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/admin/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name?.trim() ?? "",
+          email: formData.email?.trim() ?? "",
+          phone: formData.phone?.trim() ?? "",
+          loanType: formData.purpose?.trim() || "Personal Loan",
+          purpose: formData.purpose?.trim() ?? "",
+          amount: Number(formData.amount) || 0,
+          gender: formData.gender?.trim() ?? "",
+          birth: formData.birth?.trim() ?? "",
+          maritalStatus: formData.status?.trim() ?? "",
+          dependants: formData.dependants?.trim() ?? "",
+          city: formData.city?.trim() ?? "",
+          street: formData.street?.trim() ?? "",
+          houseName: formData.house_name?.trim() ?? "",
+          homeTown: formData.home_town?.trim() ?? "",
+          timeAtAddress: formData.time_address?.trim() ?? "",
+          timeAtAddress2: formData.time_address2?.trim() ?? "",
+          employmentStatus: formData.emp_status?.trim() ?? "",
+          employerName: formData.emp_name?.trim() ?? "",
+          employmentIndustry: formData.emp_industrie?.trim() ?? "",
+          employmentLength: formData.emp_length?.trim() ?? "",
+          income: Number(formData.income) || 0,
+        }),
       });
+      const payload = await response.json().catch(() => null);
+      if (!response.ok || payload?.success === false) {
+        setError(payload?.message ?? "Submission failed. Please try again.");
+        return;
+      }
       setSubmitted(true);
     } catch {
-      /* silent */
+      setError("Submission failed. Please check your connection and try again.");
     }
   };
 
@@ -67,6 +96,7 @@ export default function ApplicationFormClient() {
             placeholder={field.placeholder}
             value={formData[field.name] ?? ""}
             onChange={handleChange}
+            required={Boolean(field.required)}
           />
         </div>
       ))}
@@ -75,6 +105,11 @@ export default function ApplicationFormClient() {
           Apply Now
         </button>
       </div>
+      {error && (
+        <div className="col-lg-12 col-md-12" style={{ marginTop: 12 }}>
+          <p style={{ color: "#e53935", marginBottom: 0 }}>{error}</p>
+        </div>
+      )}
     </form>
   );
 }
