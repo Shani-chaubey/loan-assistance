@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
 import Image from "next/image";
 import Link from "next/link";
-
+ 
 const historyItems = [
   {
     period: "2010 to 2013",
