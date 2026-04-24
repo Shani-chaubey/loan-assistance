@@ -6,14 +6,15 @@ interface Lead {
   _id: string;
   name: string;
   phone: string;
+  email: string;
   query: string;
   createdAt: string;
 }
 
 export default function ChatLeadsPage() {
-  const [leads, setLeads]     = useState<Lead[]>([]);
+  const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch]   = useState("");
+  const [search, setSearch] = useState("");
 
   const load = () => {
     setLoading(true);
@@ -34,6 +35,7 @@ export default function ChatLeadsPage() {
   const filtered = leads.filter(l =>
     l.name.toLowerCase().includes(search.toLowerCase()) ||
     l.phone.includes(search) ||
+    (l.email ?? "").toLowerCase().includes(search.toLowerCase()) ||
     (l.query ?? "").toLowerCase().includes(search.toLowerCase()),
   );
 
@@ -55,7 +57,7 @@ export default function ChatLeadsPage() {
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder="Search by name, phone or query…"
+          placeholder="Search by name, phone, email or query…"
           style={{ width: "100%", maxWidth: 400, padding: "10px 16px", border: "1.5px solid #e0e0f0", borderRadius: 10, fontSize: 14, outline: "none" }}
         />
       </div>
@@ -64,8 +66,8 @@ export default function ChatLeadsPage() {
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
         {[
           { label: "Total Leads", value: leads.length, icon: "icofont-users", color: "#8180e0" },
-          { label: "Today",       value: leads.filter(l => new Date(l.createdAt).toDateString() === new Date().toDateString()).length, icon: "icofont-calendar", color: "#f0734a" },
-          { label: "This Week",   value: leads.filter(l => Date.now() - new Date(l.createdAt).getTime() < 7*864e5).length, icon: "icofont-chart-bar", color: "#27ae60" },
+          { label: "Today", value: leads.filter(l => new Date(l.createdAt).toDateString() === new Date().toDateString()).length, icon: "icofont-calendar", color: "#f0734a" },
+          { label: "This Week", value: leads.filter(l => Date.now() - new Date(l.createdAt).getTime() < 7 * 864e5).length, icon: "icofont-chart-bar", color: "#27ae60" },
         ].map(s => (
           <div key={s.label} style={{ background: "#fff", border: "1.5px solid #f0f0f8", borderRadius: 14, padding: "16px 20px", display: "flex", alignItems: "center", gap: 12, minWidth: 160, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
             <div style={{ width: 42, height: 42, borderRadius: "50%", background: `${s.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -92,7 +94,7 @@ export default function ChatLeadsPage() {
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "#f8f8ff" }}>
-                {["#", "Name", "Phone", "Query", "Date", ""].map(h => (
+                {["#", "Name", "Phone", "Email", "Query", "Date", ""].map(h => (
                   <th key={h} style={{ padding: "12px 16px", textAlign: "left", fontSize: 12, fontWeight: 700, color: "#888", textTransform: "uppercase", letterSpacing: 0.5, borderBottom: "1.5px solid #f0f0f8" }}>{h}</th>
                 ))}
               </tr>
@@ -118,6 +120,15 @@ export default function ChatLeadsPage() {
                       {lead.phone}
                     </a>
                   </td>
+                  <td style={{ padding: "14px 16px" }}>
+                    {lead.email
+                      ? <a href={`mailto:${lead.email}`} style={{ color: "#f0734a", fontWeight: 600, fontSize: 13, textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                        <i className="icofont-email" style={{ fontSize: 13 }}></i>
+                        {lead.email}
+                      </a>
+                      : <span style={{ color: "#ccc", fontStyle: "italic", fontSize: 13 }}>—</span>
+                    }
+                  </td>
                   <td style={{ padding: "14px 16px", maxWidth: 240 }}>
                     <span style={{ color: "#666", fontSize: 13, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                       {lead.query || <span style={{ color: "#ccc", fontStyle: "italic" }}>—</span>}
@@ -137,6 +148,12 @@ export default function ChatLeadsPage() {
                         style={{ padding: "6px 12px", background: "rgba(39,174,96,0.1)", color: "#27ae60", borderRadius: 8, fontSize: 12, fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
                         <i className="icofont-phone" style={{ fontSize: 12 }}></i> Call
                       </a>
+                      {lead.email && (
+                        <a href={`mailto:${lead.email}`}
+                          style={{ padding: "6px 12px", background: "rgba(240,115,74,0.1)", color: "#f0734a", borderRadius: 8, fontSize: 12, fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+                          <i className="icofont-email" style={{ fontSize: 12 }}></i> Email
+                        </a>
+                      )}
                       <button onClick={() => deleteLead(lead._id)}
                         style={{ padding: "6px 10px", background: "rgba(231,76,60,0.08)", color: "#e74c3c", border: "none", borderRadius: 8, fontSize: 12, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}>
                         <i className="icofont-trash" style={{ fontSize: 12 }}></i>

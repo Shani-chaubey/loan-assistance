@@ -68,16 +68,16 @@ export default function TestimonialsSection({
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid slice"
       >
-        <circle cx="200"  cy="100" r="180" fill="rgba(129,128,224,0.05)" />
+        <circle cx="200" cy="100" r="180" fill="rgba(129,128,224,0.05)" />
         <circle cx="1300" cy="450" r="200" fill="rgba(129,128,224,0.05)" />
         <circle cx="1380" cy="120" r="100" fill="none" stroke="rgba(129,128,224,0.08)" strokeWidth="22" />
-        <circle cx="60"   cy="480" r="100" fill="none" stroke="rgba(240,115,74,0.07)"  strokeWidth="22" />
-        {[0,1,2,3,4,5,6,7,8].map(i => (
-          <circle key={i} cx={680 + (i%3)*30} cy={60 + Math.floor(i/3)*30} r="4" fill="rgba(129,128,224,0.10)" />
+        <circle cx="60" cy="480" r="100" fill="none" stroke="rgba(240,115,74,0.07)" strokeWidth="22" />
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+          <circle key={i} cx={680 + (i % 3) * 30} cy={60 + Math.floor(i / 3) * 30} r="4" fill="rgba(129,128,224,0.10)" />
         ))}
         <path d="M0 500 Q360 460 720 500 Q1080 540 1440 500" fill="none" stroke="rgba(129,128,224,0.07)" strokeWidth="2" />
         {/* Large quote marks */}
-        <text x="40"  y="200" fontSize="160" fill="rgba(129,128,224,0.04)" fontFamily="Georgia,serif">&ldquo;</text>
+        <text x="40" y="200" fontSize="160" fill="rgba(129,128,224,0.04)" fontFamily="Georgia,serif">&ldquo;</text>
         <text x="1260" y="420" fontSize="160" fill="rgba(129,128,224,0.04)" fontFamily="Georgia,serif">&rdquo;</text>
       </svg>
 
@@ -104,7 +104,7 @@ export default function TestimonialsSection({
             <div className="customer_area" style={{ position: "relative" }}>
               {/* Star rating */}
               <div style={{ marginBottom: 12 }}>
-                {[1,2,3,4,5].map(s => (
+                {[1, 2, 3, 4, 5].map(s => (
                   <i key={s} className="icofont-star" style={{ color: "#f0734a", fontSize: 18, marginRight: 2 }}></i>
                 ))}
               </div>
@@ -120,9 +120,6 @@ export default function TestimonialsSection({
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(39,174,96,0.10)", padding: "3px 10px", borderRadius: 12, marginBottom: 8 }}>
                   <i className="icofont-check-circled" style={{ color: "#27ae60", fontSize: 13 }}></i>
                   <span style={{ fontSize: 12, color: "#27ae60", fontWeight: 600 }}>Verified Customer</span>
-                </div>
-                <div className="cus_signature">
-                  <Image src={t.signature} alt="signature" width={120} height={50} />
                 </div>
               </div>
 
@@ -148,7 +145,7 @@ export default function TestimonialsSection({
                 <div style={{ position: "absolute", top: 20, right: 10, background: "#fff", borderRadius: 14, padding: "12px 16px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", zIndex: 2, textAlign: "center" }}>
                   <div style={{ fontSize: 26, fontWeight: 800, color: "#222" }}>4.9</div>
                   <div style={{ display: "flex", justifyContent: "center", margin: "3px 0" }}>
-                    {[1,2,3,4,5].map(s => (
+                    {[1, 2, 3, 4, 5].map(s => (
                       <i key={s} className="icofont-star" style={{ color: "#f0734a", fontSize: 12 }}></i>
                     ))}
                   </div>

@@ -9,7 +9,7 @@ const quickLinks = [
   { label: "Home", href: "/", icon: "icofont-home" },
   { label: "About Us", href: "/about", icon: "icofont-people" },
   { label: "Services", href: "/services", icon: "icofont-briefcase" },
-  { label: "Blog", href: "/blog", icon: "icofont-newspaper" },
+  // { label: "Blog", href: "/blog", icon: "icofont-newspaper" },
   { label: "Contact", href: "/contact", icon: "icofont-phone" },
   {
     label: "Application Form",
@@ -240,7 +240,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
       >
         <div className="row">
           {/* ── Col 1 — Brand ── */}
-          <div className="col-lg-3 col-md-6" style={{ marginBottom: 40 }}>
+          <div className="col-lg-4 col-md-6" style={{ marginBottom: 40 }}>
             <Link href="/">
               <Image
                 src="/images/logo.png"
@@ -484,7 +484,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           </div>
 
           {/* ── Col 4 — Recent Posts ── */}
-          <div className="col-lg-2 col-md-6" style={{ marginBottom: 40 }}>
+          {/* <div className="col-lg-2 col-md-6" style={{ marginBottom: 40 }}>
             <h4
               style={{
                 color: "#fff",
@@ -595,7 +595,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* ── Col 5 — Newsletter ── */}
           <div className="col-lg-3 col-md-6" style={{ marginBottom: 40 }}>

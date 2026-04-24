@@ -1,4 +1,4 @@
-import { getSettings } from "@/lib/data";
+import { getSettings, getTeam } from "@/lib/data";
 
 import Preloader from "@/components/Preloader";
 import Header from "@/components/Header";
@@ -37,7 +37,7 @@ const historyItems = [
 export const revalidate = 60;
 
 export default async function AboutPage() {
-  const settings = await getSettings();
+  const [settings, team] = await Promise.all([getSettings(), getTeam()]);
   return (
     <>
       <Preloader />
@@ -145,7 +145,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <TeamSection sectionClass="grays" />
+      <TeamSection sectionClass="grays" members={team} />
       <TestimonialsSection sectionClass="custome_sec" showThumb={true} />
       <Footer settings={settings} />
       <Copyright settings={settings} />

@@ -60,14 +60,14 @@ export default async function HomePage() {
       <ApplyAmountSection />
       <EmiCalculatorSection />
 
-      <TeamSection members={team.map(m => ({ name: m.name, role: m.role, image: m.image }))} />
+      <TeamSection members={team.map(m => ({ name: m.name, role: m.role, description: m.description, image: m.image }))} />
       <TestimonialsSection
         sectionClass="custome_sec_2"
         showThumb={true}
         testimonials={testimonials}
       />
 
-      <LatestPostsSection posts={posts.slice(0, 2)} />
+      {/* <LatestPostsSection posts={posts.slice(0, 2)} /> */}
       {/* <TrustedPartnersSection partners={partners} /> */}
 
       <Footer settings={settings} />

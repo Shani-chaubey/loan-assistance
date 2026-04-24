@@ -88,6 +88,7 @@ const teamSchema = new Schema(
   {
     name: { type: String, required: true },
     role: { type: String, required: true },
+    description: { type: String, default: "" },
     image: { type: String, default: "/images/team/1.jpg" },
     order: { type: Number, default: 0 },
   },
@@ -126,10 +127,10 @@ const blogSchema = new Schema(
 // ── Process Step ──────────────────────────────────────────
 const processStepSchema = new Schema(
   {
-    num:   { type: String, required: true },
+    num: { type: String, required: true },
     title: { type: String, required: true },
-    desc:  { type: String, required: true },
-    icon:  { type: String, default: "icofont-paper" },
+    desc: { type: String, required: true },
+    icon: { type: String, default: "icofont-paper" },
     order: { type: Number, default: 0 },
   },
   { timestamps: true },
@@ -138,12 +139,12 @@ const processStepSchema = new Schema(
 // ── Partner / Award / Certification ───────────────────────
 const partnerSchema = new Schema(
   {
-    type:  { type: String, enum: ["partner", "award", "certification"], default: "partner" },
-    name:  { type: String, required: true },
-    icon:  { type: String, default: "icofont-bank" },
+    type: { type: String, enum: ["partner", "award", "certification"], default: "partner" },
+    name: { type: String, required: true },
+    icon: { type: String, default: "icofont-bank" },
     color: { type: String, default: "#8180e0" },
-    org:   { type: String, default: "" },       // used for awards (award org name)
-    text:  { type: String, default: "" },       // used for certifications
+    org: { type: String, default: "" },       // used for awards (award org name)
+    text: { type: String, default: "" },       // used for certifications
     order: { type: Number, default: 0 },
   },
   { timestamps: true },
@@ -220,13 +221,13 @@ export const Partner =
 // ── Form Field Config ─────────────────────────────────────
 const formFieldSchema = new Schema(
   {
-    key:         { type: String, required: true, unique: true },
-    label:       { type: String, required: true },
+    key: { type: String, required: true, unique: true },
+    label: { type: String, required: true },
     placeholder: { type: String, default: "" },
-    type:        { type: String, enum: ["text", "email", "number"], default: "text" },
-    required:    { type: Boolean, default: false },
-    enabled:     { type: Boolean, default: true },
-    order:       { type: Number, default: 0 },
+    type: { type: String, enum: ["text", "email", "number"], default: "text" },
+    required: { type: Boolean, default: false },
+    enabled: { type: Boolean, default: true },
+    order: { type: Number, default: 0 },
   },
   { timestamps: true },
 );
@@ -235,36 +236,36 @@ export const FormField =
   mongoose.models.FormField ?? mongoose.model("FormField", formFieldSchema);
 
 export const FORM_FIELD_SEEDS = [
-  { key: "name",               label: "Full Name",            placeholder: "Your full name",         type: "text",   required: true,  enabled: true, order: 1  },
-  { key: "email",              label: "Email Address",        placeholder: "Your email address",     type: "email",  required: true,  enabled: true, order: 2  },
-  { key: "phone",              label: "Phone Number",         placeholder: "Phone no.",              type: "text",   required: true,  enabled: true, order: 3  },
-  { key: "amount",             label: "Loan Amount ($)",      placeholder: "Loan amount ($)",        type: "number", required: true,  enabled: true, order: 4  },
-  { key: "purpose",            label: "Purpose of Loan",      placeholder: "Purpose of loan",        type: "text",   required: true,  enabled: true, order: 5  },
-  { key: "gender",             label: "Gender",               placeholder: "Gender",                 type: "text",   required: false, enabled: true, order: 6  },
-  { key: "birth",              label: "Date of Birth",        placeholder: "Date of birth",          type: "text",   required: false, enabled: true, order: 7  },
-  { key: "maritalStatus",      label: "Marital Status",       placeholder: "Marital status",         type: "text",   required: false, enabled: true, order: 8  },
-  { key: "dependants",         label: "Dependants",           placeholder: "Dependants",             type: "text",   required: false, enabled: true, order: 9  },
-  { key: "city",               label: "Town / City",          placeholder: "Town/City",              type: "text",   required: false, enabled: true, order: 10 },
-  { key: "street",             label: "Street",               placeholder: "Street",                 type: "text",   required: false, enabled: true, order: 11 },
-  { key: "houseName",          label: "House Name",           placeholder: "House name",             type: "text",   required: false, enabled: true, order: 12 },
-  { key: "homeTown",           label: "Home Town",            placeholder: "Home town",              type: "text",   required: false, enabled: true, order: 13 },
-  { key: "timeAtAddress",      label: "Time at Address",      placeholder: "Time at address",        type: "text",   required: false, enabled: true, order: 14 },
-  { key: "timeAtAddress2",     label: "Time at Address 2",    placeholder: "Time at address 2",      type: "text",   required: false, enabled: true, order: 15 },
-  { key: "employmentStatus",   label: "Employment Status",    placeholder: "Employment status",      type: "text",   required: false, enabled: true, order: 16 },
-  { key: "employerName",       label: "Employer Name",        placeholder: "Employer name",          type: "text",   required: false, enabled: true, order: 17 },
-  { key: "employmentIndustry", label: "Employment Industry",  placeholder: "Employment industry",    type: "text",   required: false, enabled: true, order: 18 },
-  { key: "employmentLength",   label: "Employment Length",    placeholder: "Employment length",      type: "text",   required: false, enabled: true, order: 19 },
-  { key: "income",             label: "Monthly Income ($)",   placeholder: "Monthly income",         type: "number", required: false, enabled: true, order: 20 },
+  { key: "name", label: "Full Name", placeholder: "Your full name", type: "text", required: true, enabled: true, order: 1 },
+  { key: "email", label: "Email Address", placeholder: "Your email address", type: "email", required: true, enabled: true, order: 2 },
+  { key: "phone", label: "Phone Number", placeholder: "Phone no.", type: "text", required: true, enabled: true, order: 3 },
+  { key: "amount", label: "Loan Amount ($)", placeholder: "Loan amount ($)", type: "number", required: true, enabled: true, order: 4 },
+  { key: "purpose", label: "Purpose of Loan", placeholder: "Purpose of loan", type: "text", required: true, enabled: true, order: 5 },
+  { key: "gender", label: "Gender", placeholder: "Gender", type: "text", required: false, enabled: true, order: 6 },
+  { key: "birth", label: "Date of Birth", placeholder: "Date of birth", type: "text", required: false, enabled: true, order: 7 },
+  { key: "maritalStatus", label: "Marital Status", placeholder: "Marital status", type: "text", required: false, enabled: true, order: 8 },
+  { key: "dependants", label: "Dependants", placeholder: "Dependants", type: "text", required: false, enabled: true, order: 9 },
+  { key: "city", label: "Town / City", placeholder: "Town/City", type: "text", required: false, enabled: true, order: 10 },
+  { key: "street", label: "Street", placeholder: "Street", type: "text", required: false, enabled: true, order: 11 },
+  { key: "houseName", label: "House Name", placeholder: "House name", type: "text", required: false, enabled: true, order: 12 },
+  { key: "homeTown", label: "Home Town", placeholder: "Home town", type: "text", required: false, enabled: true, order: 13 },
+  { key: "timeAtAddress", label: "Time at Address", placeholder: "Time at address", type: "text", required: false, enabled: true, order: 14 },
+  { key: "timeAtAddress2", label: "Time at Address 2", placeholder: "Time at address 2", type: "text", required: false, enabled: true, order: 15 },
+  { key: "employmentStatus", label: "Employment Status", placeholder: "Employment status", type: "text", required: false, enabled: true, order: 16 },
+  { key: "employerName", label: "Employer Name", placeholder: "Employer name", type: "text", required: false, enabled: true, order: 17 },
+  { key: "employmentIndustry", label: "Employment Industry", placeholder: "Employment industry", type: "text", required: false, enabled: true, order: 18 },
+  { key: "employmentLength", label: "Employment Length", placeholder: "Employment length", type: "text", required: false, enabled: true, order: 19 },
+  { key: "income", label: "Monthly Income ($)", placeholder: "Monthly income", type: "number", required: false, enabled: true, order: 20 },
 ] as const;
 
 // ── Chatbot Q&A ───────────────────────────────────────────
 const chatbotQASchema = new Schema(
   {
-    question:     { type: String, required: true },
-    answer:       { type: String, required: true },
-    keywords:     { type: [String], default: [] },
+    question: { type: String, required: true },
+    answer: { type: String, required: true },
+    keywords: { type: [String], default: [] },
     isQuickReply: { type: Boolean, default: false },
-    order:        { type: Number, default: 0 },
+    order: { type: Number, default: 0 },
   },
   { timestamps: true },
 );
@@ -272,8 +273,9 @@ const chatbotQASchema = new Schema(
 // ── Chat Lead (name + phone collected via chatbot) ────────
 const chatLeadSchema = new Schema(
   {
-    name:  { type: String, required: true },
+    name: { type: String, required: true },
     phone: { type: String, required: true },
+    email: { type: String, default: "" },
     query: { type: String, default: "" },
   },
   { timestamps: true },
