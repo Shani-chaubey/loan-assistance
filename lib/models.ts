@@ -258,6 +258,49 @@ export const FORM_FIELD_SEEDS = [
   { key: "income", label: "Monthly Income ($)", placeholder: "Monthly income", type: "number", required: false, enabled: true, order: 20 },
 ] as const;
 
+// ── About Page ───────────────────────────────────────────
+const aboutPageSchema = new Schema(
+  {
+    // Section 1
+    sec1Heading: { type: String, default: "Why we are starting our company?" },
+    sec1Sub: { type: String, default: "We are here to help you when you need your financial support, then we are help you." },
+    sec1Body1: { type: String, default: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content from showcase site. Simply import the sample files we ship with the theme and the core structure for your site is already built mind that even if you don't use the demo content,." },
+    sec1Body2: { type: String, default: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content." },
+    sec1Image: { type: String, default: "/images/about/1.png" },
+    // Section 2
+    sec2Heading: { type: String, default: "We are leading pay loan financial company." },
+    sec2Sub: { type: String, default: "We are here to help you when you need your financial support, then we are help you." },
+    sec2Link: { type: String, default: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content." },
+    sec2Body: { type: String, default: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content from showcase site. Simply import the sample files we ship with the theme and the core structure for your site is already built mind that even if you don't use the demo content,." },
+    sec2Image: { type: String, default: "/images/about/2.png" },
+    // History section
+    historyTitle: { type: String, default: "We have 25 years experienced\nsee our company history" },
+    historyDesc: { type: String, default: "We are here to help you when you need your financial support, then we are help you." },
+    history1Period: { type: String, default: "2010 to 2013" },
+    history1FrontDesc1: { type: String, default: "We all know how hard it can be to make your start into the world of as easy possible." },
+    history1FrontDesc2: { type: String, default: "We all know how hard it can be to as easy possible." },
+    history1BackDesc1: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible." },
+    history1BackDesc2: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into." },
+    history2Period: { type: String, default: "2014 to 2016" },
+    history2FrontDesc1: { type: String, default: "We all know how hard it can be to make your start into the world of as easy possible." },
+    history2FrontDesc2: { type: String, default: "We all know how hard it can be to as easy possible." },
+    history2BackDesc1: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible." },
+    history2BackDesc2: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into." },
+    history3Period: { type: String, default: "2017 to 2019" },
+    history3FrontDesc1: { type: String, default: "We all know how hard it can be to make your start into the world of as easy possible." },
+    history3FrontDesc2: { type: String, default: "We all know how hard it can be to as easy possible." },
+    history3BackDesc1: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible." },
+    history3BackDesc2: { type: String, default: "We all know how hard it can be to make site look like the demo so to make your start into." },
+    // Banner
+    bannerTitle: { type: String, default: "About us" },
+    bannerDesc: { type: String, default: "We are here to help you when you need your<br>financial support, then we are help you." },
+  },
+  { timestamps: true },
+);
+
+export const AboutPage =
+  mongoose.models.AboutPage ?? mongoose.model("AboutPage", aboutPageSchema);
+
 // ── Chatbot Q&A ───────────────────────────────────────────
 const chatbotQASchema = new Schema(
   {

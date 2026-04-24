@@ -7,7 +7,7 @@
 import { connectDB } from "./mongodb";
 import {
   Settings, Hero, Stat, Service, WhyChooseUs,
-  TeamMember, Testimonial, BlogPost, ProcessStep, Partner,
+  TeamMember, Testimonial, BlogPost, ProcessStep, Partner, AboutPage,
 } from "./models";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -37,6 +37,16 @@ export interface TestimonialItem { _id: string; name: string; role: string; imag
 export interface BlogItem { _id: string; title: string; slug: string; category: string; author: string; date: string; image: string; excerpt: string; content: string; published: boolean }
 export interface ProcessStepItem { _id: string; num: string; title: string; desc: string; icon: string; order: number }
 export interface PartnerItem { _id: string; type: "partner" | "award" | "certification"; name: string; icon: string; color: string; org: string; text: string; order: number }
+
+export interface AboutPageData {
+  sec1Heading: string; sec1Sub: string; sec1Body1: string; sec1Body2: string; sec1Image: string;
+  sec2Heading: string; sec2Sub: string; sec2Link: string; sec2Body: string; sec2Image: string;
+  historyTitle: string; historyDesc: string;
+  history1Period: string; history1FrontDesc1: string; history1FrontDesc2: string; history1BackDesc1: string; history1BackDesc2: string;
+  history2Period: string; history2FrontDesc1: string; history2FrontDesc2: string; history2BackDesc1: string; history2BackDesc2: string;
+  history3Period: string; history3FrontDesc1: string; history3FrontDesc2: string; history3BackDesc1: string; history3BackDesc2: string;
+  bannerTitle: string; bannerDesc: string;
+}
 
 // ── Fallbacks ─────────────────────────────────────────────────────────────────
 
@@ -102,6 +112,38 @@ const FALLBACK_BLOG: BlogItem[] = [
   { _id: "2", title: "Top 5 tips to improve your credit score before applying.", slug: "improve-credit-score-tips", category: "Tips", author: "Admin", date: "2026-04-07", image: "/images/blog/2.jpg", excerpt: "Many modern alternatives often eumen incorpo other content actually detracts from...", content: "", published: true },
   { _id: "3", title: "Understanding EMI: A complete guide for first-time borrowers.", slug: "understanding-emi-guide", category: "Personal Finance", author: "Admin", date: "2026-04-12", image: "/images/blog/3.jpg", excerpt: "EMI stands for Equated Monthly Installment.", content: "", published: true },
 ];
+
+const FALLBACK_ABOUT: AboutPageData = {
+  sec1Heading: "Why we are starting our company?",
+  sec1Sub: "We are here to help you when you need your financial support, then we are help you.",
+  sec1Body1: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content from showcase site. Simply import the sample files we ship with the theme and the core structure for your site is already built mind that even if you don't use the demo content,.",
+  sec1Body2: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content.",
+  sec1Image: "/images/about/1.png",
+  sec2Heading: "We are leading pay loan financial company.",
+  sec2Sub: "We are here to help you when you need your financial support, then we are help you.",
+  sec2Link: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content.",
+  sec2Body: "We all know how hard it can be to make a site look like the demo, so to make your start into the world of as easy as possible have included the demo content from showcase site. Simply import the sample files we ship with the theme and the core structure for your site is already built mind that even if you don't use the demo content,.",
+  sec2Image: "/images/about/2.png",
+  historyTitle: "We have 25 years experienced\nsee our company history",
+  historyDesc: "We are here to help you when you need your financial support, then we are help you.",
+  history1Period: "2010 to 2013",
+  history1FrontDesc1: "We all know how hard it can be to make your start into the world of as easy possible.",
+  history1FrontDesc2: "We all know how hard it can be to as easy possible.",
+  history1BackDesc1: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible.",
+  history1BackDesc2: "We all know how hard it can be to make site look like the demo so to make your start into.",
+  history2Period: "2014 to 2016",
+  history2FrontDesc1: "We all know how hard it can be to make your start into the world of as easy possible.",
+  history2FrontDesc2: "We all know how hard it can be to as easy possible.",
+  history2BackDesc1: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible.",
+  history2BackDesc2: "We all know how hard it can be to make site look like the demo so to make your start into.",
+  history3Period: "2017 to 2019",
+  history3FrontDesc1: "We all know how hard it can be to make your start into the world of as easy possible.",
+  history3FrontDesc2: "We all know how hard it can be to as easy possible.",
+  history3BackDesc1: "We all know how hard it can be to make site look like the demo so to make your start into the world of as easy possible.",
+  history3BackDesc2: "We all know how hard it can be to make site look like the demo so to make your start into.",
+  bannerTitle: "About us",
+  bannerDesc: "We are here to help you when you need your<br>financial support, then we are help you.",
+};
 
 // ── Fetch helpers ─────────────────────────────────────────────────────────────
 
@@ -222,4 +264,12 @@ export async function getBlogPost(slug: string): Promise<BlogItem | null> {
     const byFallback = FALLBACK_BLOG.find(b => b.slug === slug || String(b._id) === slug);
     return byFallback ?? null;
   } catch { return null; }
+}
+
+export async function getAboutPage(): Promise<AboutPageData> {
+  if (!(await safeConnect())) return FALLBACK_ABOUT;
+  try {
+    const doc = await AboutPage.findOne().lean<AboutPageData>();
+    return doc ?? FALLBACK_ABOUT;
+  } catch { return FALLBACK_ABOUT; }
 }

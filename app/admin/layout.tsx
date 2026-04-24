@@ -4,21 +4,22 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
-  { href: "/admin",                 icon: "icofont-dashboard-web",    label: "Dashboard" },
-  { href: "/admin/hero",            icon: "icofont-image",             label: "Hero Section" },
-  { href: "/admin/stats",           icon: "fa fa-bar-chart",           label: "Stats" },
-  { href: "/admin/services",        icon: "icofont-briefcase",         label: "Services" },
-  { href: "/admin/why-choose-us",   icon: "icofont-star",              label: "Why Choose Us" },
-  { href: "/admin/process-steps",   icon: "icofont-rocket-alt-2",      label: "Process Steps" },
-  { href: "/admin/partners",        icon: "icofont-handshake-deal",    label: "Partners & Awards" },
-  { href: "/admin/team",            icon: "icofont-people",            label: "Team Members" },
-  { href: "/admin/testimonials",    icon: "icofont-speech-comments",   label: "Testimonials" },
-  { href: "/admin/blog",            icon: "icofont-newspaper",         label: "Blog Posts" },
-  { href: "/admin/chatbot",         icon: "icofont-chat",              label: "Chatbot Q&A" },
-  { href: "/admin/chat-leads",      icon: "icofont-contacts",          label: "Chat Leads" },
-  { href: "/admin/applications",    icon: "icofont-paper",             label: "Applications" },
-  { href: "/admin/form-fields",     icon: "icofont-ui-form",           label: "Form Fields" },
-  { href: "/admin/settings",        icon: "icofont-settings-alt",      label: "Settings" },
+  { href: "/admin", icon: "icofont-dashboard-web", label: "Dashboard" },
+  { href: "/admin/hero", icon: "icofont-image", label: "Hero Section" },
+  { href: "/admin/about", icon: "icofont-info-circle", label: "About Page" },
+  { href: "/admin/stats", icon: "fa fa-bar-chart", label: "Stats" },
+  { href: "/admin/services", icon: "icofont-briefcase", label: "Services" },
+  { href: "/admin/why-choose-us", icon: "icofont-star", label: "Why Choose Us" },
+  { href: "/admin/process-steps", icon: "icofont-rocket-alt-2", label: "Process Steps" },
+  { href: "/admin/partners", icon: "icofont-handshake-deal", label: "Partners & Awards" },
+  { href: "/admin/team", icon: "icofont-people", label: "Team Members" },
+  { href: "/admin/testimonials", icon: "icofont-speech-comments", label: "Testimonials" },
+  { href: "/admin/blog", icon: "icofont-newspaper", label: "Blog Posts" },
+  { href: "/admin/chatbot", icon: "icofont-chat", label: "Chatbot Q&A" },
+  { href: "/admin/chat-leads", icon: "icofont-contacts", label: "Chat Leads" },
+  { href: "/admin/applications", icon: "icofont-paper", label: "Applications" },
+  { href: "/admin/form-fields", icon: "icofont-ui-form", label: "Form Fields" },
+  { href: "/admin/settings", icon: "icofont-settings-alt", label: "Settings" },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
