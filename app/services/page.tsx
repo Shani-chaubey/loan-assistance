@@ -3,19 +3,27 @@ import Header from "@/components/Header";
 import PageBanner from "@/components/PageBanner";
 import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
+import ConveyancingSection from "@/components/ConveyancingSection";
+import ServiceCard from "@/components/ServiceCard";
 import Link from "next/link";
-import { getServices, getSettings } from "@/lib/data";
+import { getServices, getSettings, getConveyancingServices } from "@/lib/data";
 
 export const revalidate = 60;
 
 export default async function ServicesPage() {
-  const [services, settings] = await Promise.all([getServices(), getSettings()]);
+  const [services, settings, conveyancing] = await Promise.all([
+    getServices(),
+    getSettings(),
+    getConveyancingServices(),
+  ]);
+
   return (
     <>
       <Preloader />
       <Header settings={settings} />
       <PageBanner title="Services of Payloan" description="We are here to help you when you need your<br>financial support, then we are help you." />
 
+      {/* ── Loan Products ─────────────────────────────────── */}
       <section className="commonSection servicePage" style={{ background: "#f8f8fb", position: "relative", overflow: "hidden" }}>
         <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
           <circle cx="-80" cy="150" r="260" fill="rgba(44,187,223,0.08)" />
@@ -37,39 +45,22 @@ export default async function ServicesPage() {
           <div className="row">
             {services.map((s) => (
               <div key={s._id} className="col-lg-4 col-md-6" style={{ marginBottom: 30 }}>
-                <div className="singleService three_column clearfix" style={{ borderRadius: 16, border: "1px solid #efeff7", padding: 28, background: "#fff", height: "100%", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 14, background: `${s.color}1A`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
-                    <i className={s.icon} style={{ color: s.color, fontSize: 24 }}></i>
-                  </div>
-                  <h1 style={{ color: s.color, fontSize: 26, marginBottom: 4 }}>{s.rate}</h1>
-                  <h4>{s.title}</h4>
-                  <p style={{ marginBottom: 14 }}>{s.desc}</p>
-                  <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
-                    <div style={{ background: "#f8f8fb", borderRadius: 10, padding: "8px 10px", flex: 1 }}>
-                      <span style={{ display: "block", fontSize: 11, color: "#aaa", textTransform: "uppercase" }}>Max Amount</span>
-                      <strong style={{ color: "#333", fontSize: 14 }}>{s.amount}</strong>
-                    </div>
-                    <div style={{ background: "#f8f8fb", borderRadius: 10, padding: "8px 10px", flex: 1 }}>
-                      <span style={{ display: "block", fontSize: 11, color: "#aaa", textTransform: "uppercase" }}>Tenure</span>
-                      <strong style={{ color: "#333", fontSize: 14 }}>{s.tenure}</strong>
-                    </div>
-                  </div>
-                  <ul style={{ padding: 0, margin: "0 0 16px", listStyle: "none" }}>
-                    {s.features.map((f) => (
-                      <li key={f} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6 }}>
-                        <i className="icofont-check-circled" style={{ color: s.color, fontSize: 15 }}></i>
-                        <span style={{ color: "#666", fontSize: 14 }}>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/service-details" style={{ color: s.color, fontWeight: 700 }}>
-                    View Details <i className="icofont-long-arrow-right"></i>
-                  </Link>
-                </div>
+                <ServiceCard
+                  _id={s._id}
+                  title={s.title}
+                  icon={s.icon}
+                  color={s.color}
+                  rate={s.rate}
+                  desc={s.desc}
+                  amount={s.amount}
+                  tenure={s.tenure}
+                  features={s.features}
+                />
               </div>
             ))}
           </div>
 
+          {/* CTA Banner */}
           <div className="row mt42">
             <div className="col-lg-12">
               <div style={{ background: "linear-gradient(135deg, #2cbbdf 0%, #4ccae5 100%)", borderRadius: 16, padding: "30px 34px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
@@ -83,6 +74,9 @@ export default async function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Conveyancing Services ──────────────────────────── */}
+      <ConveyancingSection items={conveyancing} compact={false} />
 
       <Footer settings={settings} />
       <Copyright settings={settings} />

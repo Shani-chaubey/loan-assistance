@@ -13,13 +13,14 @@ import TeamSection from "@/components/TeamSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LatestPostsSection from "@/components/LatestPostsSection";
 import TrustedPartnersSection from "@/components/TrustedPartnersSection";
+import ConveyancingSection from "@/components/ConveyancingSection";
 import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
 
 import {
   getHero, getStats, getServices, getWhyChooseUs,
   getTeam, getTestimonials, getBlogPosts, getSettings,
-  getProcessSteps, getPartners,
+  getProcessSteps, getPartners, getConveyancingServices,
 } from "@/lib/data";
 
 export const revalidate = 60;
@@ -27,7 +28,7 @@ export const revalidate = 60;
 export default async function HomePage() {
   const [
     hero, stats, services, why, team,
-    testimonials, posts, settings, processSteps, partners,
+    testimonials, posts, settings, processSteps, partners, conveyancing,
   ] = await Promise.all([
     getHero(),
     getStats(),
@@ -39,6 +40,7 @@ export default async function HomePage() {
     getSettings(),
     getProcessSteps(),
     getPartners(),
+    getConveyancingServices(),
   ]);
 
   return (
@@ -56,6 +58,8 @@ export default async function HomePage() {
 
       <HomeContactSection settings={settings} />
       <ApplicationProcessSection steps={processSteps} />
+
+      <ConveyancingSection items={conveyancing} compact={true} />
 
       <ApplyAmountSection />
       <EmiCalculatorSection />

@@ -301,6 +301,22 @@ const aboutPageSchema = new Schema(
 export const AboutPage =
   mongoose.models.AboutPage ?? mongoose.model("AboutPage", aboutPageSchema);
 
+// ── Conveyancing Service ──────────────────────────────────
+const conveyancingSchema = new Schema(
+  {
+    icon: { type: String, default: "icofont-law-document" },
+    title: { type: String, required: true },
+    desc: { type: String, required: true },
+    features: { type: [String], default: [] },
+    color: { type: String, default: "#2cbbdf" },
+    order: { type: Number, default: 0 },
+  },
+  { timestamps: true },
+);
+
+export const ConveyancingService =
+  mongoose.models.ConveyancingService ?? mongoose.model("ConveyancingService", conveyancingSchema);
+
 // ── Chatbot Q&A ───────────────────────────────────────────
 const chatbotQASchema = new Schema(
   {

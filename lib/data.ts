@@ -8,6 +8,7 @@ import { connectDB } from "./mongodb";
 import {
   Settings, Hero, Stat, Service, WhyChooseUs,
   TeamMember, Testimonial, BlogPost, ProcessStep, Partner, AboutPage,
+  ConveyancingService,
 } from "./models";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -37,6 +38,7 @@ export interface TestimonialItem { _id: string; name: string; role: string; imag
 export interface BlogItem { _id: string; title: string; slug: string; category: string; author: string; date: string; image: string; excerpt: string; content: string; published: boolean }
 export interface ProcessStepItem { _id: string; num: string; title: string; desc: string; icon: string; order: number }
 export interface PartnerItem { _id: string; type: "partner" | "award" | "certification"; name: string; icon: string; color: string; org: string; text: string; order: number }
+export interface ConveyancingItem { _id: string; icon: string; title: string; desc: string; features: string[]; color: string; order: number }
 
 export interface AboutPageData {
   sec1Heading: string; sec1Sub: string; sec1Body1: string; sec1Body2: string; sec1Image: string;
@@ -147,6 +149,12 @@ const FALLBACK_ABOUT: AboutPageData = {
 
 // ── Fetch helpers ─────────────────────────────────────────────────────────────
 
+// Converts BSON ObjectIds (and any other non-plain values) to plain JS so
+// Mongoose .lean() results can safely be passed as props to Client Components.
+function serialize<T>(val: T): T {
+  return JSON.parse(JSON.stringify(val));
+}
+
 async function safeConnect() {
   try { await connectDB(); return true; } catch { return false; }
 }
@@ -155,7 +163,7 @@ export async function getSettings(): Promise<SiteSettings> {
   if (!(await safeConnect())) return FALLBACK_SETTINGS;
   try {
     const doc = await Settings.findOne().lean<SiteSettings>();
-    return doc ?? FALLBACK_SETTINGS;
+    return serialize(doc ?? FALLBACK_SETTINGS);
   } catch { return FALLBACK_SETTINGS; }
 }
 
@@ -163,7 +171,7 @@ export async function getHero(): Promise<HeroData> {
   if (!(await safeConnect())) return FALLBACK_HERO;
   try {
     const doc = await Hero.findOne().lean<HeroData>();
-    return doc ?? FALLBACK_HERO;
+    return serialize(doc ?? FALLBACK_HERO);
   } catch { return FALLBACK_HERO; }
 }
 
@@ -171,7 +179,7 @@ export async function getStats(): Promise<StatItem[]> {
   if (!(await safeConnect())) return FALLBACK_STATS;
   try {
     const docs = await Stat.find().sort({ order: 1 }).lean<StatItem[]>();
-    return docs.length ? docs : FALLBACK_STATS;
+    return serialize(docs.length ? docs : FALLBACK_STATS);
   } catch { return FALLBACK_STATS; }
 }
 
@@ -179,15 +187,23 @@ export async function getServices(): Promise<ServiceItem[]> {
   if (!(await safeConnect())) return FALLBACK_SERVICES;
   try {
     const docs = await Service.find().sort({ order: 1 }).lean<ServiceItem[]>();
-    return docs.length ? docs : FALLBACK_SERVICES;
+    return serialize(docs.length ? docs : FALLBACK_SERVICES);
   } catch { return FALLBACK_SERVICES; }
+}
+
+export async function getServiceById(id: string): Promise<ServiceItem | null> {
+  if (!(await safeConnect())) return FALLBACK_SERVICES.find((s) => s._id === id) ?? null;
+  try {
+    const doc = await Service.findById(id).lean<ServiceItem>();
+    return doc ? serialize(doc) : null;
+  } catch { return null; }
 }
 
 export async function getWhyChooseUs(): Promise<WhyItem[]> {
   if (!(await safeConnect())) return FALLBACK_WHY;
   try {
     const docs = await WhyChooseUs.find().sort({ order: 1 }).lean<WhyItem[]>();
-    return docs.length ? docs : FALLBACK_WHY;
+    return serialize(docs.length ? docs : FALLBACK_WHY);
   } catch { return FALLBACK_WHY; }
 }
 
@@ -195,7 +211,7 @@ export async function getTeam(): Promise<TeamItem[]> {
   if (!(await safeConnect())) return FALLBACK_TEAM;
   try {
     const docs = await TeamMember.find().sort({ order: 1 }).lean<TeamItem[]>();
-    return docs.length ? docs : FALLBACK_TEAM;
+    return serialize(docs.length ? docs : FALLBACK_TEAM);
   } catch { return FALLBACK_TEAM; }
 }
 
@@ -203,7 +219,7 @@ export async function getTestimonials(): Promise<TestimonialItem[]> {
   if (!(await safeConnect())) return FALLBACK_TESTIMONIALS;
   try {
     const docs = await Testimonial.find().sort({ order: 1 }).lean<TestimonialItem[]>();
-    return docs.length ? docs : FALLBACK_TESTIMONIALS;
+    return serialize(docs.length ? docs : FALLBACK_TESTIMONIALS);
   } catch { return FALLBACK_TESTIMONIALS; }
 }
 
@@ -212,7 +228,7 @@ export async function getBlogPosts(publishedOnly = true): Promise<BlogItem[]> {
   try {
     const query = publishedOnly ? { published: true } : {};
     const docs = await BlogPost.find(query).sort({ date: -1 }).lean<BlogItem[]>();
-    return docs.length ? docs : FALLBACK_BLOG;
+    return serialize(docs.length ? docs : FALLBACK_BLOG);
   } catch { return FALLBACK_BLOG; }
 }
 
@@ -243,7 +259,7 @@ export async function getProcessSteps(): Promise<ProcessStepItem[]> {
   if (!(await safeConnect())) return FALLBACK_PROCESS;
   try {
     const docs = await ProcessStep.find().sort({ order: 1 }).lean<ProcessStepItem[]>();
-    return docs.length ? docs : FALLBACK_PROCESS;
+    return serialize(docs.length ? docs : FALLBACK_PROCESS);
   } catch { return FALLBACK_PROCESS; }
 }
 
@@ -251,18 +267,16 @@ export async function getPartners(): Promise<PartnerItem[]> {
   if (!(await safeConnect())) return FALLBACK_PARTNERS;
   try {
     const docs = await Partner.find().sort({ order: 1 }).lean<PartnerItem[]>();
-    return docs.length ? docs : FALLBACK_PARTNERS;
+    return serialize(docs.length ? docs : FALLBACK_PARTNERS);
   } catch { return FALLBACK_PARTNERS; }
 }
 
 export async function getBlogPost(slug: string): Promise<BlogItem | null> {
   if (!(await safeConnect())) return FALLBACK_BLOG.find(b => b.slug === slug) ?? null;
   try {
-    // Try by slug first, fall back to numeric id
     const bySlug = await BlogPost.findOne({ slug }).lean<BlogItem>();
-    if (bySlug) return bySlug;
-    const byFallback = FALLBACK_BLOG.find(b => b.slug === slug || String(b._id) === slug);
-    return byFallback ?? null;
+    if (bySlug) return serialize(bySlug);
+    return FALLBACK_BLOG.find(b => b.slug === slug || String(b._id) === slug) ?? null;
   } catch { return null; }
 }
 
@@ -270,6 +284,23 @@ export async function getAboutPage(): Promise<AboutPageData> {
   if (!(await safeConnect())) return FALLBACK_ABOUT;
   try {
     const doc = await AboutPage.findOne().lean<AboutPageData>();
-    return doc ?? FALLBACK_ABOUT;
+    return serialize(doc ?? FALLBACK_ABOUT);
   } catch { return FALLBACK_ABOUT; }
+}
+
+const FALLBACK_CONVEYANCING: ConveyancingItem[] = [
+  { _id: "c1", icon: "icofont-home", title: "Residential Conveyancing", desc: "Seamless buying and selling of residential properties with full legal protection at every step.", features: ["Contract review & negotiation", "Title & encumbrance search", "Settlement coordination"], color: "#2cbbdf", order: 1 },
+  { _id: "c2", icon: "icofont-building-alt", title: "Commercial Conveyancing", desc: "Expert handling of commercial property transfers, leases, and developments for businesses of all sizes.", features: ["Due diligence & compliance", "Lease agreements", "Zoning & planning advice"], color: "#f0734a", order: 2 },
+  { _id: "c3", icon: "icofont-search-document", title: "Title Search & Verification", desc: "Thorough investigation of property titles to protect your investment from hidden disputes or claims.", features: ["Full title history report", "Caveat & lien detection", "Rapid turnaround"], color: "#27ae60", order: 3 },
+  { _id: "c4", icon: "icofont-law", title: "Mortgage & Settlement", desc: "End-to-end mortgage registration and settlement services ensuring a smooth and stress-free handover.", features: ["Mortgage registration", "Funds disbursement", "Key handover support"], color: "#2196f3", order: 4 },
+  { _id: "c5", icon: "icofont-files-stack", title: "Strata Title Services", desc: "Specialised conveyancing for strata, community title, and off-the-plan purchases with full transparency.", features: ["By-laws & levies review", "Off-the-plan contracts", "Body corporate advice"], color: "#e91e8c", order: 5 },
+  { _id: "c6", icon: "icofont-refresh", title: "Property Transfers", desc: "Fast and accurate transfer of property between family members, related parties, or through estates.", features: ["Stamp duty concessions", "Gift & family transfers", "Estate property transfers"], color: "#ff9800", order: 6 },
+];
+
+export async function getConveyancingServices(): Promise<ConveyancingItem[]> {
+  if (!(await safeConnect())) return FALLBACK_CONVEYANCING;
+  try {
+    const docs = await ConveyancingService.find().sort({ order: 1 }).lean<ConveyancingItem[]>();
+    return serialize(docs.length ? docs : FALLBACK_CONVEYANCING);
+  } catch { return FALLBACK_CONVEYANCING; }
 }

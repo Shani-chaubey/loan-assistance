@@ -9,6 +9,7 @@ const navItems = [
   { href: "/admin/about", icon: "icofont-info-circle", label: "About Page" },
   { href: "/admin/stats", icon: "fa fa-bar-chart", label: "Stats" },
   { href: "/admin/services", icon: "icofont-briefcase", label: "Services" },
+  { href: "/admin/conveyancing", icon: "icofont-law-document", label: "Conveyancing" },
   { href: "/admin/why-choose-us", icon: "icofont-star", label: "Why Choose Us" },
   { href: "/admin/process-steps", icon: "icofont-rocket-alt-2", label: "Process Steps" },
   { href: "/admin/partners", icon: "icofont-handshake-deal", label: "Partners & Awards" },
