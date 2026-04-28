@@ -490,9 +490,14 @@ Version: 1.0
     position: relative;
 }
 .singleTeam img{
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 30px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 .singleTeam h4{
     font-size: 20px;

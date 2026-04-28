@@ -17,6 +17,7 @@ interface DynamicImageProps {
 export default function DynamicImage({ src, alt, width, height, style, className, priority }: DynamicImageProps) {
   if (src.startsWith("https://") || src.startsWith("http://")) {
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={src}
         alt={alt}

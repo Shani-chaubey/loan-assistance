@@ -1,7 +1,6 @@
 "use client";
 
 import DynamicImage from "@/components/DynamicImage";
-import Link from "next/link";
 
 interface TeamMember {
   image: string;
@@ -20,13 +19,6 @@ const defaultMembers: TeamMember[] = [
   { image: "/images/team/2.png", name: "Dominic Jefferson", role: "Head of Marketing", description: "Drives brand growth and customer engagement through data-driven marketing strategies." },
   { image: "/images/team/3.png", name: "Mercedes Baldwin", role: "General Manager", description: "Oversees daily operations ensuring seamless loan processing and team performance." },
   { image: "/images/team/4.png", name: "Gertrude Keller", role: "Commercial Manager", description: "Manages key commercial partnerships and helps businesses secure the right financing." },
-];
-
-const socials = [
-  { icon: "icofont-facebook", href: "#" },
-  { icon: "icofont-twitter", href: "#" },
-  { icon: "icofont-linkedin", href: "#" },
-  { icon: "icofont-instagram", href: "#" },
 ];
 
 export default function TeamSection({ members = defaultMembers, sectionClass = "" }: TeamSectionProps) {
@@ -87,7 +79,7 @@ export default function TeamSection({ members = defaultMembers, sectionClass = "
 
         <div className="row">
           {members.map((member) => (
-            <div key={member.name} className="col-lg-3 col-md-6">
+            <div key={member.name} className="col-lg-3 col-md-6" style={{ marginBottom: 16 }}>
               <div className="singleTeam text-center" style={{ position: "relative", overflow: "hidden" }}>
                 <DynamicImage src={member.image} alt={member.name} width={270} height={270} />
                 <h4>{member.name}</h4>
