@@ -80,7 +80,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           cy="300"
           r="380"
           fill="none"
-          stroke="rgba(129,128,224,0.07)"
+          stroke="rgba(44,187,223,0.07)"
           strokeWidth="60"
         />
         <circle
@@ -88,7 +88,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           cy="300"
           r="380"
           fill="none"
-          stroke="rgba(129,128,224,0.07)"
+          stroke="rgba(44,187,223,0.07)"
           strokeWidth="60"
         />
         <circle
@@ -96,7 +96,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           cy="-80"
           r="280"
           fill="none"
-          stroke="rgba(129,128,224,0.04)"
+          stroke="rgba(44,187,223,0.04)"
           strokeWidth="40"
         />
         <circle
@@ -114,7 +114,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           cy="0"
           rx="220"
           ry="160"
-          fill="rgba(129,128,224,0.06)"
+          fill="rgba(44,187,223,0.06)"
         />
         <ellipse
           cx="1440"
@@ -128,13 +128,13 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           cy="300"
           rx="300"
           ry="180"
-          fill="rgba(129,128,224,0.02)"
+          fill="rgba(44,187,223,0.02)"
         />
 
         {/* Top wave */}
         <path
           d="M0 0 Q360 40 720 0 Q1080 -40 1440 0 L1440 50 Q1080 90 720 50 Q360 10 0 50 Z"
-          fill="rgba(129,128,224,0.06)"
+          fill="rgba(44,187,223,0.06)"
         />
 
         {/* Dot grid */}
@@ -145,7 +145,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               cx={40 + c * 80}
               cy={60 + r * 90}
               r="1.8"
-              fill="rgba(129,128,224,0.10)"
+              fill="rgba(44,187,223,0.10)"
             />
           )),
         )}
@@ -156,7 +156,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           y1="600"
           x2="200"
           y2="300"
-          stroke="rgba(129,128,224,0.05)"
+          stroke="rgba(44,187,223,0.05)"
           strokeWidth="1"
           strokeDasharray="6 14"
         />
@@ -174,7 +174,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           y1="0"
           x2="600"
           y2="600"
-          stroke="rgba(129,128,224,0.03)"
+          stroke="rgba(44,187,223,0.03)"
           strokeWidth="1"
           strokeDasharray="4 18"
         />
@@ -183,7 +183,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           y1="0"
           x2="840"
           y2="600"
-          stroke="rgba(129,128,224,0.03)"
+          stroke="rgba(44,187,223,0.03)"
           strokeWidth="1"
           strokeDasharray="4 18"
         />
@@ -207,7 +207,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               y1={y}
               x2={x + 8}
               y2={y}
-              stroke="rgba(129,128,224,0.14)"
+              stroke="rgba(44,187,223,0.14)"
               strokeWidth="1.5"
             />
             <line
@@ -215,7 +215,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               y1={y - 8}
               x2={x}
               y2={y + 8}
-              stroke="rgba(129,128,224,0.14)"
+              stroke="rgba(44,187,223,0.14)"
               strokeWidth="1.5"
             />
           </g>
@@ -227,7 +227,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         style={{
           height: 4,
           background:
-            "linear-gradient(90deg, #8180e0 0%, #f0734a 50%, #8180e0 100%)",
+            "linear-gradient(90deg, #2cbbdf 0%, #f0734a 50%, #2cbbdf 100%)",
           position: "relative",
           zIndex: 1,
         }}
@@ -245,7 +245,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               <Image
                 src="/images/logo.png"
                 alt="Payloan"
-                width={150}
+                width={160}
                 height={48}
                 style={{ marginBottom: 20, filter: "brightness(0) invert(1)" }}
               />
@@ -279,7 +279,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                       width: 30,
                       height: 30,
                       borderRadius: 8,
-                      background: "rgba(129,128,224,0.15)",
+                      background: "rgba(44,187,223,0.15)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -289,7 +289,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   >
                     <i
                       className={c.icon}
-                      style={{ color: "#8180e0", fontSize: 14 }}
+                      style={{ color: "#2cbbdf", fontSize: 14 }}
                     ></i>
                   </div>
                   <span
@@ -367,7 +367,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   left: 0,
                   width: 32,
                   height: 3,
-                  background: "linear-gradient(90deg,#8180e0,#f0734a)",
+                  background: "linear-gradient(90deg,#2cbbdf,#f0734a)",
                   borderRadius: 2,
                 }}
               />
@@ -388,7 +388,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.color =
-                        "#8180e0";
+                        "#2cbbdf";
                       (e.currentTarget as HTMLAnchorElement).style.paddingLeft =
                         "4px";
                     }}
@@ -403,7 +403,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                       className={l.icon}
                       style={{
                         fontSize: 14,
-                        color: "#8180e0",
+                        color: "#2cbbdf",
                         width: 16,
                         flexShrink: 0,
                       }}
@@ -435,7 +435,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   left: 0,
                   width: 32,
                   height: 3,
-                  background: "linear-gradient(90deg,#8180e0,#f0734a)",
+                  background: "linear-gradient(90deg,#2cbbdf,#f0734a)",
                   borderRadius: 2,
                 }}
               />
@@ -503,7 +503,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   left: 0,
                   width: 32,
                   height: 3,
-                  background: "linear-gradient(90deg,#8180e0,#f0734a)",
+                  background: "linear-gradient(90deg,#2cbbdf,#f0734a)",
                   borderRadius: 2,
                 }}
               />
@@ -542,7 +542,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     width: 40,
                     height: 40,
                     borderRadius: 10,
-                    background: "rgba(129,128,224,0.15)",
+                    background: "rgba(44,187,223,0.15)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -551,7 +551,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 >
                   <i
                     className="icofont-newspaper"
-                    style={{ color: "#8180e0", fontSize: 18 }}
+                    style={{ color: "#2cbbdf", fontSize: 18 }}
                   ></i>
                 </div>
                 <div>
@@ -568,7 +568,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLAnchorElement).style.color =
-                        "#8180e0")
+                        "#2cbbdf")
                     }
                     onMouseLeave={(e) =>
                       ((e.currentTarget as HTMLAnchorElement).style.color =
@@ -617,7 +617,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   left: 0,
                   width: 32,
                   height: 3,
-                  background: "linear-gradient(90deg,#8180e0,#f0734a)",
+                  background: "linear-gradient(90deg,#2cbbdf,#f0734a)",
                   borderRadius: 2,
                 }}
               />
@@ -697,7 +697,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     width: "100%",
                     padding: "13px",
                     background:
-                      "linear-gradient(135deg, #8180e0 0%, #a079e0 100%)",
+                      "linear-gradient(135deg, #2cbbdf 0%, #38cfe8 100%)",
                     border: "none",
                     borderRadius: 10,
                     color: "#fff",
@@ -708,7 +708,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: 8,
-                    boxShadow: "0 6px 20px rgba(129,128,224,0.40)",
+                    boxShadow: "0 6px 20px rgba(44,187,223,0.40)",
                     transition: "opacity 0.2s",
                   }}
                   onMouseEnter={(e) =>
@@ -754,7 +754,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 >
                   <i
                     className={b.icon}
-                    style={{ color: "#8180e0", fontSize: 13 }}
+                    style={{ color: "#2cbbdf", fontSize: 13 }}
                   ></i>
                   <span
                     style={{ color: "rgba(255,255,255,0.50)", fontSize: 12 }}
@@ -787,7 +787,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 }}
               >
                 © {new Date().getFullYear()}{" "}
-                <span style={{ color: "#8180e0", fontWeight: 600 }}>
+                <span style={{ color: "#2cbbdf", fontWeight: 600 }}>
                   Payloan
                 </span>
                 . All rights reserved.
@@ -818,7 +818,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                     }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLAnchorElement).style.color =
-                        "#8180e0")
+                        "#2cbbdf")
                     }
                     onMouseLeave={(e) =>
                       ((e.currentTarget as HTMLAnchorElement).style.color =

@@ -28,7 +28,7 @@ export default function EmiCalculatorSection() {
   const updateTrack = (el: HTMLInputElement | null, min: number, max: number, val: number) => {
     if (!el) return;
     const pct = ((val - min) / (max - min)) * 100;
-    el.style.background = `linear-gradient(to right, #8180e0 0%, #8180e0 ${pct}%, #ddd ${pct}%, #ddd 100%)`;
+    el.style.background = `linear-gradient(to right, #2cbbdf 0%, #2cbbdf ${pct}%, #ddd ${pct}%, #ddd 100%)`;
   };
 
   useEffect(() => { updateTrack(sliderRef1.current, 10000, 5000000, principal); }, [principal]);
@@ -63,16 +63,16 @@ export default function EmiCalculatorSection() {
         viewBox="0 0 1440 560"
       >
         {/* Large soft circle — top-left */}
-        <circle cx="-60" cy="-40" r="320" fill="rgba(129,128,224,0.07)" />
+        <circle cx="-60" cy="-40" r="320" fill="rgba(44,187,223,0.07)" />
 
         {/* Medium ring — top-right */}
-        <circle cx="1380" cy="40" r="200" fill="none" stroke="rgba(129,128,224,0.12)" strokeWidth="40" />
+        <circle cx="1380" cy="40" r="200" fill="none" stroke="rgba(44,187,223,0.12)" strokeWidth="40" />
 
         {/* Small filled circle — top-right accent */}
-        <circle cx="1340" cy="120" r="60" fill="rgba(129,128,224,0.08)" />
+        <circle cx="1340" cy="120" r="60" fill="rgba(44,187,223,0.08)" />
 
         {/* Large ring — bottom-left */}
-        <circle cx="80" cy="560" r="240" fill="none" stroke="rgba(129,128,224,0.10)" strokeWidth="50" />
+        <circle cx="80" cy="560" r="240" fill="none" stroke="rgba(44,187,223,0.10)" strokeWidth="50" />
 
         {/* Tiny dot cluster — centre-right */}
         {[0,1,2,3,4,5,6,7,8].map((i) => (
@@ -81,7 +81,7 @@ export default function EmiCalculatorSection() {
             cx={1080 + (i % 3) * 28}
             cy={200 + Math.floor(i / 3) * 28}
             r="5"
-            fill="rgba(129,128,224,0.18)"
+            fill="rgba(44,187,223,0.18)"
           />
         ))}
 
@@ -92,7 +92,7 @@ export default function EmiCalculatorSection() {
             cx={140 + (i % 3) * 28}
             cy={390 + Math.floor(i / 3) * 28}
             r="5"
-            fill="rgba(129,128,224,0.15)"
+            fill="rgba(44,187,223,0.15)"
           />
         ))}
 
@@ -100,7 +100,7 @@ export default function EmiCalculatorSection() {
         <path
           d="M0 300 Q180 260 360 300 Q540 340 720 300 Q900 260 1080 300 Q1260 340 1440 300"
           fill="none"
-          stroke="rgba(129,128,224,0.10)"
+          stroke="rgba(44,187,223,0.10)"
           strokeWidth="2"
         />
 
@@ -108,12 +108,12 @@ export default function EmiCalculatorSection() {
         <path
           d="M0 330 Q180 290 360 330 Q540 370 720 330 Q900 290 1080 330 Q1260 370 1440 330"
           fill="none"
-          stroke="rgba(129,128,224,0.06)"
+          stroke="rgba(44,187,223,0.06)"
           strokeWidth="2"
         />
 
         {/* Diagonal dashed line — decorative */}
-        <line x1="0" y1="560" x2="400" y2="0" stroke="rgba(129,128,224,0.05)" strokeWidth="1" strokeDasharray="8 12" />
+        <line x1="0" y1="560" x2="400" y2="0" stroke="rgba(44,187,223,0.05)" strokeWidth="1" strokeDasharray="8 12" />
 
         {/* Orange accent blob — bottom-right */}
         <circle cx="1420" cy="520" r="180" fill="rgba(240,115,74,0.05)" />
@@ -129,7 +129,7 @@ export default function EmiCalculatorSection() {
               cx={500 + col * 48}
               cy={80 + row * 80}
               r="2.5"
-              fill="rgba(129,128,224,0.09)"
+              fill="rgba(44,187,223,0.09)"
             />
           ))
         )}
@@ -157,7 +157,7 @@ export default function EmiCalculatorSection() {
               <div className="emi-field">
                 <div className="emi-label-row">
                   <span className="emi-label">
-                    <i className="flaticon-mortgage-loan" style={{ marginRight: 8, color: "#8180e0" }}></i>
+                    <i className="flaticon-mortgage-loan" style={{ marginRight: 8, color: "#2cbbdf" }}></i>
                     Loan Amount
                   </span>
                   <span className="emi-value-badge">{formatCurrency(principal)}</span>
@@ -182,7 +182,7 @@ export default function EmiCalculatorSection() {
               <div className="emi-field">
                 <div className="emi-label-row">
                   <span className="emi-label">
-                    <i className="icofont-money" style={{ marginRight: 8, color: "#8180e0" }}></i>
+                    <i className="icofont-money" style={{ marginRight: 8, color: "#2cbbdf" }}></i>
                     Annual Interest Rate
                   </span>
                   <span className="emi-value-badge">{annualRate.toFixed(1)}%</span>
@@ -207,7 +207,7 @@ export default function EmiCalculatorSection() {
               <div className="emi-field">
                 <div className="emi-label-row">
                   <span className="emi-label">
-                    <i className="icofont-calendar" style={{ marginRight: 8, color: "#8180e0" }}></i>
+                    <i className="icofont-calendar" style={{ marginRight: 8, color: "#2cbbdf" }}></i>
                     Loan Tenure
                   </span>
                   <span className="emi-value-badge">{tenureMonths} mo</span>
@@ -249,7 +249,7 @@ export default function EmiCalculatorSection() {
               <div className="row" style={{ marginTop: 24 }}>
                 <div className="col-6">
                   <div className="emi-stat-card">
-                    <i className="icofont-bank-alt" style={{ color: "#8180e0" }}></i>
+                    <i className="icofont-bank-alt" style={{ color: "#2cbbdf" }}></i>
                     <p>Principal Amount</p>
                     <h5>{formatCurrency(principal)}</h5>
                     <div className="emi-pct-bar">
@@ -272,7 +272,7 @@ export default function EmiCalculatorSection() {
               </div>
 
               <div className="emi-total-row">
-                <i className="icofont-checked" style={{ color: "#8180e0", marginRight: 8 }}></i>
+                <i className="icofont-checked" style={{ color: "#2cbbdf", marginRight: 8 }}></i>
                 <span>Total Payment&nbsp;:&nbsp;</span>
                 <strong>{formatCurrency(totalPayment)}</strong>
               </div>
@@ -304,7 +304,7 @@ export default function EmiCalculatorSection() {
         }
 
         .emi-value-badge {
-          background: #8180e0;
+          background: #2cbbdf;
           color: #fff;
           padding: 4px 14px;
           border-radius: 20px;
@@ -319,7 +319,7 @@ export default function EmiCalculatorSection() {
           appearance: none;
           width: 100%;
           height: 6px;
-          background: linear-gradient(to right, #8180e0 0%, #8180e0 var(--pct, 50%), #ddd var(--pct, 50%), #ddd 100%);
+          background: linear-gradient(to right, #2cbbdf 0%, #2cbbdf var(--pct, 50%), #ddd var(--pct, 50%), #ddd 100%);
           border-radius: 3px;
           outline: none;
           cursor: pointer;
@@ -330,10 +330,10 @@ export default function EmiCalculatorSection() {
           appearance: none;
           width: 22px;
           height: 22px;
-          background: #8180e0;
+          background: #2cbbdf;
           border: 3px solid #fff;
           border-radius: 50%;
-          box-shadow: 0 2px 8px rgba(129,128,224,0.5);
+          box-shadow: 0 2px 8px rgba(44,187,223,0.5);
           cursor: pointer;
           transition: transform 0.2s;
         }
@@ -343,10 +343,10 @@ export default function EmiCalculatorSection() {
         .emi-range::-moz-range-thumb {
           width: 22px;
           height: 22px;
-          background: #8180e0;
+          background: #2cbbdf;
           border: 3px solid #fff;
           border-radius: 50%;
-          box-shadow: 0 2px 8px rgba(129,128,224,0.5);
+          box-shadow: 0 2px 8px rgba(44,187,223,0.5);
           cursor: pointer;
         }
 
@@ -362,13 +362,13 @@ export default function EmiCalculatorSection() {
         .emi-results { padding-left: 20px; }
 
         .emi-main-card {
-          background: #8180e0;
+          background: #2cbbdf;
           border-radius: 12px;
           padding: 36px 28px 30px;
           text-align: center;
           position: relative;
           overflow: hidden;
-          box-shadow: 0 12px 40px rgba(129,128,224,0.35);
+          box-shadow: 0 12px 40px rgba(44,187,223,0.35);
         }
 
         .emi-main-card::before {
@@ -454,12 +454,12 @@ export default function EmiCalculatorSection() {
         }
 
         .emi-pct-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease; }
-        .principal-fill { background: #8180e0; }
+        .principal-fill { background: #2cbbdf; }
         .interest-fill  { background: #f0734a; }
 
         .emi-pct-label {
           font-size: 12px;
-          color: #8180e0;
+          color: #2cbbdf;
           font-weight: 700;
         }
 

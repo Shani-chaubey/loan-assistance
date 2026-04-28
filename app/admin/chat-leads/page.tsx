@@ -47,7 +47,7 @@ export default function ChatLeadsPage() {
           <h1 style={{ fontSize: 24, fontWeight: 800, color: "#222", margin: 0 }}>Chat Leads</h1>
           <p style={{ color: "#888", margin: "4px 0 0", fontSize: 14 }}>{leads.length} total leads collected via chatbot</p>
         </div>
-        <button onClick={load} style={{ padding: "8px 16px", background: "#8180e0", color: "#fff", border: "none", borderRadius: 10, cursor: "pointer", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}>
+        <button onClick={load} style={{ padding: "8px 16px", background: "#2cbbdf", color: "#fff", border: "none", borderRadius: 10, cursor: "pointer", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}>
           <i className="icofont-refresh" style={{ fontSize: 16 }}></i> Refresh
         </button>
       </div>
@@ -58,14 +58,14 @@ export default function ChatLeadsPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search by name, phone, email or query…"
-          style={{ width: "100%", maxWidth: 400, padding: "10px 16px", border: "1.5px solid #e0e0f0", borderRadius: 10, fontSize: 14, outline: "none" }}
+          style={{ width: "100%", maxWidth: 400, padding: "10px 16px", border: "1.5px solid #cceffa", borderRadius: 10, fontSize: 14, outline: "none" }}
         />
       </div>
 
       {/* Stats row */}
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
         {[
-          { label: "Total Leads", value: leads.length, icon: "icofont-users", color: "#8180e0" },
+          { label: "Total Leads", value: leads.length, icon: "icofont-users", color: "#2cbbdf" },
           { label: "Today", value: leads.filter(l => new Date(l.createdAt).toDateString() === new Date().toDateString()).length, icon: "icofont-calendar", color: "#f0734a" },
           { label: "This Week", value: leads.filter(l => Date.now() - new Date(l.createdAt).getTime() < 7 * 864e5).length, icon: "icofont-chart-bar", color: "#27ae60" },
         ].map(s => (
@@ -108,14 +108,14 @@ export default function ChatLeadsPage() {
                   <td style={{ padding: "14px 16px", color: "#aaa", fontSize: 13 }}>{i + 1}</td>
                   <td style={{ padding: "14px 16px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg,#8180e0,#6c6bcc)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg,#2cbbdf,#21a8c8)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                         <span style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>{lead.name.charAt(0).toUpperCase()}</span>
                       </div>
                       <span style={{ fontWeight: 600, color: "#222", fontSize: 14 }}>{lead.name}</span>
                     </div>
                   </td>
                   <td style={{ padding: "14px 16px" }}>
-                    <a href={`tel:${lead.phone}`} style={{ color: "#8180e0", fontWeight: 600, fontSize: 14, textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                    <a href={`tel:${lead.phone}`} style={{ color: "#2cbbdf", fontWeight: 600, fontSize: 14, textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
                       <i className="icofont-phone" style={{ fontSize: 13 }}></i>
                       {lead.phone}
                     </a>

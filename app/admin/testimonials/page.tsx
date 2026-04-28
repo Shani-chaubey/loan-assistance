@@ -8,10 +8,10 @@ function TestimonialCard({ item, onEdit, onDelete }: { item: Record<string, unkn
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
         <div>
           <h4 style={{ margin: 0, fontSize: 15 }}>{item.name as string}</h4>
-          <span style={{ fontSize: 12, color: "#8180e0" }}>{item.role as string}</span>
+          <span style={{ fontSize: 12, color: "#2cbbdf" }}>{item.role as string}</span>
         </div>
         <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(129,128,224,0.10)", color: "#8180e0", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(44,187,223,0.10)", color: "#2cbbdf", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
           <button onClick={onDelete} title="Delete" style={{ border: "none", background: "rgba(229,57,53,0.10)", color: "#e53935", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>

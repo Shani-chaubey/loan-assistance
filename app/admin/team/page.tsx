@@ -1,15 +1,15 @@
 "use client";
 
 import AdminCrud from "@/components/admin/AdminCrud";
-import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 
 function TeamCard({ item, onEdit, onDelete }: { item: Record<string, unknown>; onEdit: () => void; onDelete: () => void }) {
   return (
     <div style={{ background: "#fff", borderRadius: 14, padding: 20, boxShadow: "0 2px 12px rgba(0,0,0,0.05)", display: "flex", alignItems: "center", gap: 14 }}>
-      <Image src={(item.image as string) || "/images/team/1.jpg"} alt={item.name as string} width={54} height={54} style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+      <DynamicImage src={(item.image as string) || "/images/team/1.jpg"} alt={item.name as string} width={54} height={54} style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
       <div style={{ flex: 1 }}>
         <h4 style={{ margin: 0, fontSize: 15 }}>{item.name as string}</h4>
-        <p style={{ margin: "3px 0 0", fontSize: 13, color: "#8180e0" }}>{item.role as string}</p>
+        <p style={{ margin: "3px 0 0", fontSize: 13, color: "#2cbbdf" }}>{item.role as string}</p>
         {item.description as string &&
           <p style={{ margin: "4px 0 0", fontSize: 12, color: "#999" }}>
             {item.description as string}
@@ -17,7 +17,7 @@ function TeamCard({ item, onEdit, onDelete }: { item: Record<string, unknown>; o
         }
       </div>
       <div style={{ display: "flex", gap: 6 }}>
-        <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(129,128,224,0.10)", color: "#8180e0", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(44,187,223,0.10)", color: "#2cbbdf", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>
         </button>
         <button onClick={onDelete} title="Delete" style={{ border: "none", background: "rgba(229,57,53,0.10)", color: "#e53935", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>

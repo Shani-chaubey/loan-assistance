@@ -289,8 +289,8 @@ export default function ChatbotWidget() {
           width: 60, height: 60, borderRadius: "50%", border: "none",
           background: isOpen
             ? "linear-gradient(135deg, #f0734a 0%, #e05528 100%)"
-            : "linear-gradient(135deg, #8180e0 0%, #6c6bcc 100%)",
-          boxShadow: "0 8px 32px rgba(129,128,224,0.50)",
+            : "linear-gradient(135deg, #2cbbdf 0%, #21a8c8 100%)",
+          boxShadow: "0 8px 32px rgba(44,187,223,0.50)",
           cursor: "pointer",
           display: "flex", alignItems: "center", justifyContent: "center",
           transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
@@ -318,7 +318,7 @@ export default function ChatbotWidget() {
         <span style={{
           position: "fixed", bottom: 28, right: 28, zIndex: 9998,
           width: 60, height: 60, borderRadius: "50%",
-          background: "rgba(129,128,224,0.25)",
+          background: "rgba(44,187,223,0.25)",
           animation: "chatPulse 2s ease-out infinite",
           pointerEvents: "none",
         }} />
@@ -342,7 +342,7 @@ export default function ChatbotWidget() {
 
         {/* ── Header ── */}
         <div style={{
-          background: "linear-gradient(135deg, #8180e0 0%, #6c6bcc 50%, #5e5dc0 100%)",
+          background: "linear-gradient(135deg, #2cbbdf 0%, #21a8c8 50%, #1a95b2 100%)",
           padding: "18px 20px", position: "relative", overflow: "hidden", flexShrink: 0,
         }}>
           <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} viewBox="0 0 380 80" preserveAspectRatio="xMidYMid slice">
@@ -384,7 +384,7 @@ export default function ChatbotWidget() {
           flex: 1, overflowY: "auto", padding: "16px 14px",
           background: "linear-gradient(180deg, #f8f8ff 0%, #fff 100%)",
           display: "flex", flexDirection: "column", gap: 6,
-          scrollbarWidth: "thin", scrollbarColor: "#e0e0f0 transparent",
+          scrollbarWidth: "thin", scrollbarColor: "#cceffa transparent",
         }}>
           {messages.length === 0 && (
             <div style={{ textAlign: "center", padding: "32px 16px" }}>
@@ -396,24 +396,24 @@ export default function ChatbotWidget() {
           {messages.map((msg) => (
             <div key={msg.id} style={{ display: "flex", flexDirection: msg.role === "user" ? "row-reverse" : "row", alignItems: "flex-end", gap: 8, marginBottom: 2 }}>
               {msg.role === "bot" && (
-                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#8180e0,#6c6bcc)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#2cbbdf,#21a8c8)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#fff" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" /></svg>
                 </div>
               )}
               <div style={{ maxWidth: "78%", display: "flex", flexDirection: "column", gap: 4 }}>
                 {msg.isTyping ? (
                   <div style={{ background: "#fff", border: "1.5px solid #f0f0f8", padding: "12px 16px", borderRadius: "18px 18px 18px 4px", display: "flex", gap: 5, alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-                    {[0, 1, 2].map(i => <span key={i} style={{ width: 7, height: 7, borderRadius: "50%", background: "#8180e0", display: "inline-block", animation: `chatBounce 1.2s ${i * 0.2}s ease-in-out infinite` }} />)}
+                    {[0, 1, 2].map(i => <span key={i} style={{ width: 7, height: 7, borderRadius: "50%", background: "#2cbbdf", display: "inline-block", animation: `chatBounce 1.2s ${i * 0.2}s ease-in-out infinite` }} />)}
                   </div>
                 ) : (
                   <div style={{
                     padding: "10px 14px",
                     borderRadius: msg.role === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
-                    background: msg.role === "user" ? "linear-gradient(135deg, #8180e0 0%, #6c6bcc 100%)" : "#fff",
+                    background: msg.role === "user" ? "linear-gradient(135deg, #2cbbdf 0%, #21a8c8 100%)" : "#fff",
                     color: msg.role === "user" ? "#fff" : "#333",
                     fontSize: 14, lineHeight: 1.6,
                     border: msg.role === "bot" ? "1.5px solid #f0f0f8" : "none",
-                    boxShadow: msg.role === "bot" ? "0 2px 8px rgba(0,0,0,0.05)" : "0 2px 12px rgba(129,128,224,0.30)",
+                    boxShadow: msg.role === "bot" ? "0 2px 8px rgba(0,0,0,0.05)" : "0 2px 12px rgba(44,187,223,0.30)",
                     whiteSpace: "pre-wrap",
                   }}>
                     {renderText(msg.text)}
@@ -423,9 +423,9 @@ export default function ChatbotWidget() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
                     {msg.quickReplies.map(qr => (
                       <button key={qr} onClick={() => handleQuickReply(qr)}
-                        style={{ padding: "6px 12px", borderRadius: 20, fontSize: 12, fontWeight: 600, border: "1.5px solid #8180e0", background: "transparent", color: "#8180e0", cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap" }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#8180e0"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.color = "#8180e0"; }}
+                        style={{ padding: "6px 12px", borderRadius: 20, fontSize: 12, fontWeight: 600, border: "1.5px solid #2cbbdf", background: "transparent", color: "#2cbbdf", cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap" }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#2cbbdf"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.color = "#2cbbdf"; }}
                       >{qr}</button>
                     ))}
                   </div>
@@ -441,11 +441,11 @@ export default function ChatbotWidget() {
 
           {isTyping && (
             <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
-              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#8180e0,#6c6bcc)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#2cbbdf,#21a8c8)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#fff" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" /></svg>
               </div>
               <div style={{ background: "#fff", border: "1.5px solid #f0f0f8", padding: "12px 16px", borderRadius: "18px 18px 18px 4px", display: "flex", gap: 5, alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-                {[0, 1, 2].map(i => <span key={i} style={{ width: 7, height: 7, borderRadius: "50%", background: "#8180e0", display: "inline-block", animation: `chatBounce 1.2s ${i * 0.2}s ease-in-out infinite` }} />)}
+                {[0, 1, 2].map(i => <span key={i} style={{ width: 7, height: 7, borderRadius: "50%", background: "#2cbbdf", display: "inline-block", animation: `chatBounce 1.2s ${i * 0.2}s ease-in-out infinite` }} />)}
               </div>
             </div>
           )}
@@ -462,13 +462,13 @@ export default function ChatbotWidget() {
             placeholder={inputPlaceholder}
             type={flow === "ask-email" ? "email" : "text"}
             style={{ flex: 1, border: "1.5px solid #e8e8f5", borderRadius: 24, padding: "10px 16px", fontSize: 14, outline: "none", background: "#fafafe", transition: "border-color 0.2s", color: "#333" }}
-            onFocus={e => (e.currentTarget.style.borderColor = "#8180e0")}
+            onFocus={e => (e.currentTarget.style.borderColor = "#2cbbdf")}
             onBlur={e => (e.currentTarget.style.borderColor = "#e8e8f5")}
           />
           <button
             onClick={() => handleSend()}
             disabled={!input.trim()}
-            style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: input.trim() ? "linear-gradient(135deg, #8180e0 0%, #6c6bcc 100%)" : "#e8e8f5", cursor: input.trim() ? "pointer" : "not-allowed", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", flexShrink: 0, boxShadow: input.trim() ? "0 4px 14px rgba(129,128,224,0.35)" : "none" }}
+            style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: input.trim() ? "linear-gradient(135deg, #2cbbdf 0%, #21a8c8 100%)" : "#e8e8f5", cursor: input.trim() ? "pointer" : "not-allowed", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", flexShrink: 0, boxShadow: input.trim() ? "0 4px 14px rgba(44,187,223,0.35)" : "none" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={input.trim() ? "#fff" : "#bbb"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
@@ -478,7 +478,7 @@ export default function ChatbotWidget() {
 
         <div style={{ background: "#fafafe", borderTop: "1px solid #f5f5ff", padding: "6px 14px", textAlign: "center", flexShrink: 0 }}>
           <span style={{ fontSize: 10, color: "#ccc" }}>Powered by </span>
-          <span style={{ fontSize: 10, color: "#8180e0", fontWeight: 700 }}>Payloan Assistant</span>
+          <span style={{ fontSize: 10, color: "#2cbbdf", fontWeight: 700 }}>Payloan Assistant</span>
           <span style={{ fontSize: 10, color: "#ccc" }}> · 256-bit encrypted</span>
         </div>
       </div>

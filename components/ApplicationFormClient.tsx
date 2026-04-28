@@ -136,8 +136,8 @@ export default function ApplicationFormClient() {
                   boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#8180e0";
-                  e.target.style.boxShadow = "0 0 0 3px rgba(129,128,224,0.12)";
+                  e.target.style.borderColor = "#2cbbdf";
+                  e.target.style.boxShadow = "0 0 0 3px rgba(44,187,223,0.12)";
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = "#dde1f0";

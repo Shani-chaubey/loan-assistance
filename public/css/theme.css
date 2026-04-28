@@ -75,7 +75,7 @@ Version: 1.0
     text-transform: capitalize;
 }
 .mainmenu ul li a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .mainmenu ul ul.sub-menu {
     background: #fff;
@@ -136,7 +136,7 @@ Version: 1.0
     -moz-transition: all ease 400ms;
 }
 .mainmenu ul ul.sub-menu > li.menu-item-has-children > a:hover:after{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .fixedHeader .mainmenu ul ul.sub-menu ul.sub-menu,
 .mainmenu ul ul.sub-menu ul.sub-menu {
@@ -165,7 +165,7 @@ Version: 1.0
     height: 52px;
     background: #ffffff;
     line-height: 52px;
-    color: #8180e0;
+    color: #2cbbdf;
     padding: 0;
 }
 .navigator_btn a:hover{
@@ -175,7 +175,7 @@ Version: 1.0
     padding-right: 20px;
 }
 .navigator_btn.btn_bg a{
-    background: #8180e0;
+    background: #2cbbdf;
     color: #fff;
 }
 .navigator_btn.btn_bg a:hover{
@@ -186,7 +186,7 @@ Version: 1.0
     color: #ffffff;
 }
 .menu_white .mainmenu ul li a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .menu_white .mainmenu ul li a{
     color: #ffffff;
@@ -223,7 +223,7 @@ Version: 1.0
     top: 54px;
 }
 .fixedHeader .navigator_btn a.common_btn{
-    background: #8180e0;
+    background: #2cbbdf;
     color: #fff;
 }
 .fixedHeader.menu_white .mainmenu ul li a{
@@ -233,7 +233,7 @@ Version: 1.0
     color: #222;
 }
 .menu_white .mainmenu ul ul.sub-menu li a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 
 /*----------------------------------------------------
@@ -298,7 +298,7 @@ Version: 1.0
     color: #222222;
 }
 .header_bg_1 .welcome_text h1 span{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .header_bg_1 .welcome_text p{
     color: #929292;
@@ -352,7 +352,7 @@ Version: 1.0
     margin: 0 0 25px;
 }
 .singleAB p a{
-    color: #8180e0;
+    color: #2cbbdf;
     text-decoration: underline;
 }
 .singleAB p a:hover{
@@ -435,7 +435,7 @@ Version: 1.0
     box-shadow:         0px 0px 22px 0px rgba(129, 128, 224, 0.17);
 }
 .singleHistory .back {
-    background: #8180e0;
+    background: #2cbbdf;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -462,7 +462,7 @@ Version: 1.0
 .singleHistory .front h4{
     font-size: 22px;
     line-height: 30px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 700;
     margin: 0 0 17px;
 }
@@ -633,7 +633,7 @@ Version: 1.0
 .footer .about_widgets p{
     font-size: 25px;
     line-height: 40px;
-    color: #8180e0;
+    color: #2cbbdf;
     margin: 0;
 }
 .footer .singleLPost{
@@ -650,7 +650,7 @@ Version: 1.0
     color: #222222;
 }
 .footer .singleLPost h4 a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .footer .singleLPost span{
     font-size: 16px;
@@ -705,7 +705,7 @@ Version: 1.0
     height: 54px;
     color: #ffffff;
     line-height: 54px;
-    background: #8180e0;
+    background: #2cbbdf;
     border: none;
     outline: none;
     font-weight: 700;
@@ -742,7 +742,7 @@ Version: 1.0
 }
 .copyright p a{
     display: inline-block;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 700;
 }
 .copyright.bg_f4f5f4 p{
@@ -770,7 +770,7 @@ Version: 1.0
 
 }
 #backTo:hover{
-    background: #8180e0;
+    background: #2cbbdf;
     color: #fff;
 }
 
@@ -805,7 +805,7 @@ Version: 1.0
 }
 .singleService i{
     font-size: 58px;
-    color: #8180e0;
+    color: #2cbbdf;
     line-height: 58px;
     display: inline-block;
     float: left;
@@ -831,12 +831,12 @@ Version: 1.0
     display: inline-block;
     font-size: 17px;
     line-height: 28px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 700;
     margin: 0;
 }
 .singleService:hover{
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .singleService:hover i,
 .singleService:hover h1,
@@ -923,7 +923,7 @@ Version: 1.0
     position: relative;
     display: inline-block;
     background: #fff;
-    color: #8180e0;
+    color: #2cbbdf;
     font-size: 19px;
     line-height: 30px;
     font-weight: 400;
@@ -936,7 +936,7 @@ Version: 1.0
     box-shadow:         0px 0px 29px 0px rgba(129, 128, 224, 0.12);
 }
 .serviceRelated:hover{
-    background: #8180e0;
+    background: #2cbbdf;
     color: #fff;
 }
 .mt26{
@@ -975,13 +975,13 @@ Version: 1.0
     color: #383c5e;
 }
 .singleService_3 .serDetail h4 a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .singleService_3 .serDetail h2{
     float: right;
     font-size: 30px;
     line-height: 32px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 900;
 }
 .singleService_3 .serDetail p{
@@ -999,7 +999,7 @@ Version: 1.0
     margin: 0 0 0;
 }
 .singleService_3 .serDetail a.readMore:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 
 /*----------------------------------------------------
@@ -1071,7 +1071,7 @@ Version: 1.0
     opacity: 0;
 }
 .singleTestimoinal:hover{
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .singleTestimoinal:hover h5,
 .singleTestimoinal:hover p{
@@ -1187,7 +1187,7 @@ Version: 1.0
     display: inline-block;
 }
 .blogDetail h3 a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .blogDetail p{
     margin: 0 0 28px;
@@ -1202,7 +1202,7 @@ Version: 1.0
     margin: 0 0 0;
 }
 .blogDetail .author span{
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 700;
 }
 .blogDetail a.view_detail{
@@ -1210,7 +1210,7 @@ Version: 1.0
     float: right;
     font-size: 19px;
     line-height: 30px;
-    color: #8180e0;
+    color: #2cbbdf;
     margin: 0;
 }
 .blogDetail a.view_detail:hover{
@@ -1240,7 +1240,7 @@ Version: 1.0
 .payloan_paginations a:hover,
 .payloan_paginations .current{
     color: #fff;
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .sidebar{
     position: relative;
@@ -1260,7 +1260,7 @@ Version: 1.0
     color: #fff;
     line-height: 60px;
     font-weight: 400;
-    background: #8180e0;
+    background: #2cbbdf;
     border-radius: 3px;
     margin: 0 0 33px;
     padding: 5px 15px;
@@ -1300,7 +1300,7 @@ Version: 1.0
 .sidebar .widget_search button[type="submit"]{
     width: 65px;
     height: 65px;
-    background: #8180e0;
+    background: #2cbbdf;
     color: #fff;
     font-size: 25px;
     line-height: 65px;
@@ -1332,7 +1332,7 @@ Version: 1.0
 }
 .payloan_post_widget h4 a{
     display: inline-block;
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .payloan_post_widget h4 a:hover{
     color: #222222;
@@ -1351,7 +1351,7 @@ Version: 1.0
 }
 .payloan_post_widget .author span{
     font-size: 14px;
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .payloan_post_widget:last-child{
     padding-bottom: 38px;
@@ -1370,7 +1370,7 @@ Version: 1.0
     font-weight: 400;
 }
 .tagcloud a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .singlblogPage{
     padding: 50px 0 92px;
@@ -1407,7 +1407,7 @@ Version: 1.0
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .blog_social{
     position: relative;
@@ -1445,7 +1445,7 @@ Version: 1.0
     background: #1311fb;
 }
 .blog_social a:hover{
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .related_post{
     position: relative;
@@ -1481,7 +1481,7 @@ Version: 1.0
     color: #222222;
 }
 .SRPost h4 a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .SRPost p{
     margin: 0;
@@ -1508,7 +1508,7 @@ Version: 1.0
 }
 .related_post_slide .owl-controls .owl-nav .owl-prev:hover,
 .related_post_slide .owl-controls .owl-nav .owl-next:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .commentFrom{
     position: relative;
@@ -1559,7 +1559,7 @@ Version: 1.0
     opacity: 1;
 }
 .commentFrom .common_btn{
-    background: #8180e0;
+    background: #2cbbdf;
     padding: 20px 42.5px;
 }
 .commentFrom .common_btn:after{
@@ -1582,7 +1582,7 @@ Version: 1.0
     position: relative;
     background: #f1f1f8;
     border-radius: 10px;
-    border: 2px solid #8180e0;
+    border: 2px solid #2cbbdf;
     padding: 48px 35px 24px;
     margin-bottom: 50px;
     margin-top: 20px;
@@ -1625,14 +1625,14 @@ Version: 1.0
 }
 #price_range .ui-slider-range.ui-widget-header{
     height: 100%;
-    background: #8180e0;
+    background: #2cbbdf;
     border-radius: 5px;
 }
 #price_range .ui-slider-handle{
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #8180e0;
+    background: #2cbbdf;
     display: block;
     position: absolute;
     right: 0;
@@ -1657,7 +1657,7 @@ Version: 1.0
 
 .loanCaclculat{
     position: relative;
-    background: #8180e0;
+    background: #2cbbdf;
     border-radius: 10px;
     padding: 33px 40px;
 }
@@ -1795,7 +1795,7 @@ Version: 1.0
     background: transparent;
 }
 .contactFrom .common_btn{
-    background: #8180e0;
+    background: #2cbbdf;
     border-radius: 50px;
     padding: 20px 37px;
 }
@@ -1869,8 +1869,8 @@ Version: 1.0
 .applicationForm input[type="text"]:focus,
 .applicationForm input[type="number"]:focus,
 .applicationForm input[type="email"]:focus{
-    background: #8180e0;
-    border-color: #8180e0;
+    background: #2cbbdf;
+    border-color: #2cbbdf;
     color: #fff;
 }
 .applicationForm input[type="number"]:focus::-moz-placeholder,
@@ -1892,7 +1892,7 @@ Version: 1.0
     opacity: 1;
 }
 .applicationForm .common_btn{
-    background: #8180e0;
+    background: #2cbbdf;
     border-radius: 50px;
     padding: 20px 50.1px;
     margin-top: 50px
@@ -1911,7 +1911,7 @@ Version: 1.0
     z-index: 3;
 }
 .rev_slider_1 .layer_1 span{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .homeService{
     position: relative;
@@ -2003,7 +2003,7 @@ Version: 1.0
     box-shadow:         0px 0px 45px 0px rgba(34, 34, 34, 0.10);
 }
 .singleService_2 .back {
-    background: #8180e0;
+    background: #2cbbdf;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -2017,7 +2017,7 @@ Version: 1.0
 .singleService_2 .back i,
 .singleService_2 .front i {
     font-size: 58px;
-    color: #8180e0;
+    color: #2cbbdf;
     line-height: 58px;
     display: inline-block;
     float: left;
@@ -2110,7 +2110,7 @@ Version: 1.0
     color: #222222;
 }
 .latestPost h4 a:hover {
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .latestPost span {
     font-size: 16px;
@@ -2128,7 +2128,7 @@ Version: 1.0
 .latestPost a.readMore{
     font-size: 17px;
     line-height: 28px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 700;
     margin: 0;
     display: inline-block;
@@ -2312,7 +2312,7 @@ Version: 1.0
     box-shadow:         0px 0px 45px 0px rgba(34, 34, 34, 0.10);
 }
 .singleProcess_2 .back {
-    background: #8180e0;
+    background: #2cbbdf;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -2341,7 +2341,7 @@ Version: 1.0
 .singleProcess_2 .front .bg_number h1 {
     font-size: 55px;
     line-height: 55px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 900;
     margin: 0 0;
 }
@@ -2398,7 +2398,7 @@ Version: 1.0
     width: 100%;
     padding: 47px 45px;
     background: #f1f1f8;
-    border: 2px solid #8180e0;
+    border: 2px solid #2cbbdf;
     border-radius: 150px;
 }
 .applyamountFrom input[type="number"]{
@@ -2836,7 +2836,7 @@ Version: 1.0
     color: #383c5e;
 }
 .latestPost_2 h3 a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .LPThumb{
     position: relative;
@@ -2858,7 +2858,7 @@ Version: 1.0
     height: 100%;
     content: '';
     background: rgb(46,55,136);
-    background: linear-gradient(-38deg, rgba(129,128,224,0.20) 0%, rgba(9,9,121,1) 50%, rgba(46,55,136,0.20) 100%);
+    background: linear-gradient(-38deg, rgba(44,187,223,0.20) 0%, rgba(9,9,121,1) 50%, rgba(46,55,136,0.20) 100%);
     opacity: .20;
     border-radius: 20px;
 }
@@ -2906,7 +2906,7 @@ Version: 1.0
     padding: 0;
 }
 .footer_2 .links ul li a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 
 .footer_2 .subscribe_widgets h3{
@@ -3017,7 +3017,7 @@ Version: 1.0
 }
 .team_slider .slick-next:hover,
 .team_slider .slick-prev:hover{
-    background: #8180e0;
+    background: #2cbbdf;
 }
 .team_slider .slick-prev:hover:after,
 .team_slider .slick-next:hover:after{
@@ -3198,7 +3198,7 @@ Version: 1.0
     margin: 0 4px;
 }
 .teamSocial a:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }
 .pdLeftRight{
     padding: 0 140px;
@@ -3242,7 +3242,7 @@ Version: 1.0
     height: 100%;
     content: '';
     background: rgb(46,55,136);
-    background: linear-gradient(-35deg, rgba(129,128,224,0.15) 0%, rgba(9,9,121,1) 50%, rgba(46,55,136,0.15) 100%);
+    background: linear-gradient(-35deg, rgba(44,187,223,0.15) 0%, rgba(9,9,121,1) 50%, rgba(46,55,136,0.15) 100%);
     opacity: .15;
     border-radius: 20px;
 }
@@ -3449,7 +3449,7 @@ Version: 1.0
 }
 .content_404 h1{
     font-size: 250px;
-    color: #8180e0;
+    color: #2cbbdf;
     font-weight: 900;
     line-height: 1;
     margin: 0 0 11px;
@@ -3630,5 +3630,5 @@ Version: 1.0
 }
 .color_settings .switch-btn.active,
 .color_settings .switch-btn:hover{
-    color: #8180e0;
+    color: #2cbbdf;
 }

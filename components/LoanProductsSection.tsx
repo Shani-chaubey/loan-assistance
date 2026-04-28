@@ -23,7 +23,7 @@ function serviceToProduct(s: ServiceItem, i: number) {
 }
 
 const defaultProducts = [
-  { _id:"1", icon:"icofont-businessman", title:"Business Loan", rate:"10.2%", maxAmount:"₹5,00,000", tenure:"Up to 84 months", tag:"Most Popular", tagColor:"#fff", accentColor:"#8180e0", accentBg:"rgba(129,128,224,0.10)", bullets:["No collateral required","Instant disbursal","Overdraft facility"] },
+  { _id:"1", icon:"icofont-businessman", title:"Business Loan", rate:"10.2%", maxAmount:"₹5,00,000", tenure:"Up to 84 months", tag:"Most Popular", tagColor:"#fff", accentColor:"#2cbbdf", accentBg:"rgba(44,187,223,0.10)", bullets:["No collateral required","Instant disbursal","Overdraft facility"] },
   { _id:"2", icon:"icofont-people",      title:"Personal Loan", rate:"9.35%", maxAmount:"₹2,00,000", tenure:"Up to 60 months", tag:"Best Rate",    tagColor:"#fff", accentColor:"#27ae60", accentBg:"rgba(39,174,96,0.10)",   bullets:["Zero processing fee","Flexible EMI plans","Same-day approval"] },
   { _id:"3", icon:"icofont-student",     title:"Education Loan",rate:"7.80%", maxAmount:"₹10,00,000",tenure:"Up to 120 months",tag:"Low Interest",  tagColor:"#fff", accentColor:"#2196f3", accentBg:"rgba(33,150,243,0.10)", bullets:["Tuition + living costs","Moratorium period","Tax benefit"] },
   { _id:"4", icon:"icofont-car",         title:"Car Loan",      rate:"8.70%", maxAmount:"₹3,00,000", tenure:"Up to 84 months", tag:"Fast Approval", tagColor:"#fff", accentColor:"#f0734a", accentBg:"rgba(240,115,74,0.10)", bullets:["New & used cars","Up to 95% financing","Doorstep service"] },
@@ -53,18 +53,18 @@ export default function LoanProductsSection({ services }: LoanProductsSectionPro
         preserveAspectRatio="xMidYMid slice"
       >
         {/* Top wavy band */}
-        <path d="M0 0 Q360 50 720 0 Q1080 -50 1440 0 L1440 70 Q1080 120 720 70 Q360 20 0 70 Z" fill="rgba(129,128,224,0.05)" />
+        <path d="M0 0 Q360 50 720 0 Q1080 -50 1440 0 L1440 70 Q1080 120 720 70 Q360 20 0 70 Z" fill="rgba(44,187,223,0.05)" />
         {/* Bottom wavy band */}
-        <path d="M0 800 Q360 750 720 800 Q1080 850 1440 800 L1440 740 Q1080 690 720 740 Q360 790 0 740 Z" fill="rgba(129,128,224,0.05)" />
+        <path d="M0 800 Q360 750 720 800 Q1080 850 1440 800 L1440 740 Q1080 690 720 740 Q360 790 0 740 Z" fill="rgba(44,187,223,0.05)" />
 
         {/* Side rings */}
-        <circle cx="-80"  cy="400" r="260" fill="none" stroke="rgba(129,128,224,0.06)" strokeWidth="50" />
-        <circle cx="1520" cy="400" r="260" fill="none" stroke="rgba(129,128,224,0.06)" strokeWidth="50" />
+        <circle cx="-80"  cy="400" r="260" fill="none" stroke="rgba(44,187,223,0.06)" strokeWidth="50" />
+        <circle cx="1520" cy="400" r="260" fill="none" stroke="rgba(44,187,223,0.06)" strokeWidth="50" />
 
         {/* Dot curtain — top */}
         {Array.from({ length: 3 }).map((_, r) =>
           Array.from({ length: 16 }).map((_, c) => (
-            <circle key={`t${r}-${c}`} cx={60 + c * 88} cy={40 + r * 28} r="2.5" fill="rgba(129,128,224,0.08)" />
+            <circle key={`t${r}-${c}`} cx={60 + c * 88} cy={40 + r * 28} r="2.5" fill="rgba(44,187,223,0.08)" />
           ))
         )}
 
@@ -76,7 +76,7 @@ export default function LoanProductsSection({ services }: LoanProductsSectionPro
           { x: 1200, y: 620, sym: "$", op: 0.05 },
           { x: 180,  y: 650, sym: "%", op: 0.05 },
         ].map((s, i) => (
-          <text key={i} x={s.x} y={s.y} fontSize="52" fill={`rgba(129,128,224,${s.op})`} fontFamily="sans-serif" fontWeight="bold">{s.sym}</text>
+          <text key={i} x={s.x} y={s.y} fontSize="52" fill={`rgba(44,187,223,${s.op})`} fontFamily="sans-serif" fontWeight="bold">{s.sym}</text>
         ))}
 
         {/* Orange accent dots */}
@@ -89,9 +89,9 @@ export default function LoanProductsSection({ services }: LoanProductsSectionPro
         {/* ── Heading ── */}
         <div className="row">
           <div className="col-lg-12 text-center">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
-              <i className="icofont-bank-alt" style={{ color: "#8180e0", fontSize: 16 }}></i>
-              <span style={{ fontSize: 13, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Loan Products</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
+              <i className="icofont-bank-alt" style={{ color: "#2cbbdf", fontSize: 16 }}></i>
+              <span style={{ fontSize: 13, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Loan Products</span>
             </div>
             <h2 className="sec_title">
               Choose the right loan

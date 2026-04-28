@@ -45,7 +45,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Logo */}
         <div style={{ padding: "28px 20px 20px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#8180e0,#a079e0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <i className="icofont-bank" style={{ color: "#fff", fontSize: 18 }}></i>
             </div>
             <div>
@@ -66,9 +66,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 style={{
                   display: "flex", alignItems: "center", gap: 10,
                   padding: "10px 12px", borderRadius: 10, marginBottom: 4,
-                  background: active ? "rgba(129,128,224,0.20)" : "transparent",
-                  borderLeft: active ? "3px solid #8180e0" : "3px solid transparent",
-                  color: active ? "#a89eed" : "rgba(255,255,255,0.55)",
+                  background: active ? "rgba(44,187,223,0.20)" : "transparent",
+                  borderLeft: active ? "3px solid #2cbbdf" : "3px solid transparent",
+                  color: active ? "#7dd8ed" : "rgba(255,255,255,0.55)",
                   textDecoration: "none", fontSize: 14, fontWeight: active ? 600 : 400,
                   transition: "all 0.2s",
                 }}
@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, background: "#f8f8fb", borderRadius: 10, padding: "6px 12px" }}>
-              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#8180e0,#a079e0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <i className="icofont-user-alt-5" style={{ color: "#fff", fontSize: 14 }}></i>
               </div>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#333" }}>Admin</span>

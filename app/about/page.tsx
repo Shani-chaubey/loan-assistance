@@ -8,6 +8,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
 import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 import Link from "next/link";
 
 export const revalidate = 60;
@@ -59,7 +60,7 @@ export default async function AboutPage() {
           <div className="row">
             <div className="col-lg-7">
               <div className="singleABThumb">
-                <Image src={about.sec1Image} alt="About" width={660} height={500} />
+                <DynamicImage src={about.sec1Image} alt="About" width={660} height={500} />
               </div>
             </div>
             <div className="col-lg-5">
@@ -90,7 +91,7 @@ export default async function AboutPage() {
             </div>
             <div className="col-lg-6">
               <div className="singleABThumb_2">
-                <Image src={about.sec2Image} alt="About" width={540} height={450} />
+                <DynamicImage src={about.sec2Image} alt="About" width={540} height={450} />
               </div>
             </div>
           </div>

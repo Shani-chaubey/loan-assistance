@@ -112,7 +112,7 @@ export default function AdminCrud({ title, apiPath, fields, defaultValues, rende
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
         <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1a1a2e", margin: 0 }}>{title}</h2>
-        <button onClick={openCreate} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,#8180e0,#a079e0)", border: "none", color: "#fff", padding: "10px 20px", borderRadius: 10, fontWeight: 700, cursor: "pointer", fontSize: 14 }}>
+        <button onClick={openCreate} style={{ display: "flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", border: "none", color: "#fff", padding: "10px 20px", borderRadius: 10, fontWeight: 700, cursor: "pointer", fontSize: 14 }}>
           <i className="icofont-plus"></i> Add New
         </button>
       </div>
@@ -159,12 +159,12 @@ export default function AdminCrud({ title, apiPath, fields, defaultValues, rende
                       value={String(form[f.key] ?? "")}
                       onChange={(e) => handleFieldChange(f.key, e.target.value)}
                       placeholder={f.placeholder}
-                      style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, resize: "vertical", outline: "none", boxSizing: "border-box" }}
+                      style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, resize: "vertical", outline: "none", boxSizing: "border-box" }}
                     />
                   ) : f.type === "color" ? (
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <input type="color" value={String(form[f.key] ?? "#8180e0")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ width: 46, height: 36, border: "none", borderRadius: 8, cursor: "pointer" }} />
-                      <input type="text" value={String(form[f.key] ?? "")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ flex: 1, padding: "8px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, outline: "none" }} />
+                      <input type="color" value={String(form[f.key] ?? "#2cbbdf")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ width: 46, height: 36, border: "none", borderRadius: 8, cursor: "pointer" }} />
+                      <input type="text" value={String(form[f.key] ?? "")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ flex: 1, padding: "8px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, outline: "none" }} />
                     </div>
                   ) : f.type === "tags" ? (
                     <div>
@@ -181,13 +181,13 @@ export default function AdminCrud({ title, apiPath, fields, defaultValues, rende
                             }
                           }
                         }}
-                        style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
+                        style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
                       />
                       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
                         {((form[f.key] as string[]) ?? []).map((tag: string, i: number) => (
-                          <span key={i} style={{ background: "rgba(129,128,224,0.12)", color: "#8180e0", padding: "4px 10px", borderRadius: 20, fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
+                          <span key={i} style={{ background: "rgba(44,187,223,0.12)", color: "#2cbbdf", padding: "4px 10px", borderRadius: 20, fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
                             {tag}
-                            <button type="button" onClick={() => handleFieldChange(f.key, ((form[f.key] as string[]) ?? []).filter((_, j) => j !== i))} style={{ background: "none", border: "none", cursor: "pointer", color: "#8180e0", padding: 0, fontSize: 16, lineHeight: 1 }}>×</button>
+                            <button type="button" onClick={() => handleFieldChange(f.key, ((form[f.key] as string[]) ?? []).filter((_, j) => j !== i))} style={{ background: "none", border: "none", cursor: "pointer", color: "#2cbbdf", padding: 0, fontSize: 16, lineHeight: 1 }}>×</button>
                           </span>
                         ))}
                       </div>
@@ -199,7 +199,7 @@ export default function AdminCrud({ title, apiPath, fields, defaultValues, rende
                       placeholder={f.placeholder}
                     />
                   ) : (f.type === "select" || f.options) ? (
-                    <select value={String(form[f.key] ?? "")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, outline: "none" }}>
+                    <select value={String(form[f.key] ?? "")} onChange={(e) => handleFieldChange(f.key, e.target.value)} style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, outline: "none" }}>
                       {f.options?.map((o) => {
                         const val = typeof o === "string" ? o : o.value;
                         const lbl = typeof o === "string" ? o : o.label;
@@ -212,14 +212,14 @@ export default function AdminCrud({ title, apiPath, fields, defaultValues, rende
                       value={String(form[f.key] ?? "")}
                       onChange={(e) => handleFieldChange(f.key, e.target.value)}
                       placeholder={f.placeholder}
-                      style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
+                      style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
                     />
                   )}
                 </div>
               ))}
               <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 24 }}>
-                <button type="button" onClick={() => setShowForm(false)} style={{ padding: "10px 22px", border: "1.5px solid #e0e0f0", borderRadius: 8, background: "#fff", cursor: "pointer", fontWeight: 600 }}>Cancel</button>
-                <button type="submit" disabled={saving} style={{ padding: "10px 22px", background: "linear-gradient(135deg,#8180e0,#a079e0)", border: "none", color: "#fff", borderRadius: 8, fontWeight: 700, cursor: "pointer" }}>
+                <button type="button" onClick={() => setShowForm(false)} style={{ padding: "10px 22px", border: "1.5px solid #cceffa", borderRadius: 8, background: "#fff", cursor: "pointer", fontWeight: 600 }}>Cancel</button>
+                <button type="submit" disabled={saving} style={{ padding: "10px 22px", background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", border: "none", color: "#fff", borderRadius: 8, fontWeight: 700, cursor: "pointer" }}>
                   {saving ? "Saving…" : "Save"}
                 </button>
               </div>

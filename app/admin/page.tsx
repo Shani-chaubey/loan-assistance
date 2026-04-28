@@ -21,7 +21,7 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 const quickLinks = [
-  { href: "/admin/hero",          icon: "icofont-image",            label: "Hero Section",  color: "#8180e0" },
+  { href: "/admin/hero",          icon: "icofont-image",            label: "Hero Section",  color: "#2cbbdf" },
   { href: "/admin/services",      icon: "icofont-briefcase",        label: "Services",       color: "#f0734a" },
   { href: "/admin/blog",          icon: "icofont-newspaper",        label: "Blog Posts",     color: "#2196f3" },
   { href: "/admin/applications",  icon: "icofont-paper",            label: "Applications",   color: "#27ae60" },
@@ -41,7 +41,7 @@ export default function AdminDashboard() {
   }, []);
 
   const statCards = data ? [
-    { label: "Services",      value: data.services,     icon: "icofont-briefcase",    color: "#8180e0" },
+    { label: "Services",      value: data.services,     icon: "icofont-briefcase",    color: "#2cbbdf" },
     { label: "Blog Posts",    value: data.blogs,         icon: "icofont-newspaper",    color: "#2196f3" },
     { label: "Team Members",  value: data.team,          icon: "icofont-people",       color: "#27ae60" },
     { label: "Testimonials",  value: data.testimonials,  icon: "icofont-speech-comments", color: "#f0734a" },
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
         <div style={{ background: "#fff", borderRadius: 16, padding: 24, boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
             <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1a1a2e", margin: 0 }}>Recent Applications</h3>
-            <Link href="/admin/applications" style={{ fontSize: 13, color: "#8180e0", textDecoration: "none" }}>View all →</Link>
+            <Link href="/admin/applications" style={{ fontSize: 13, color: "#2cbbdf", textDecoration: "none" }}>View all →</Link>
           </div>
           {loading ? (
             <p style={{ color: "#aaa" }}>Loading…</p>

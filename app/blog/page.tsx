@@ -5,6 +5,7 @@ import BlogSidebar from "@/components/BlogSidebar";
 import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
 import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 import Link from "next/link";
 import { getBlogPosts, getSettings } from "@/lib/data";
 
@@ -30,11 +31,11 @@ export default async function BlogPage() {
               {posts.map((post) => (
                 <div key={post._id} className="singleBlog">
                   <div className="blogThumb">
-                    <Image src={post.image || "/images/blog/1.jpg"} alt={post.title} width={800} height={400} />
+                    <DynamicImage src={post.image || "/images/blog/1.jpg"} alt={post.title} width={800} height={400} />
                   </div>
                   <div className="blogDetail">
                     <div style={{ marginBottom: 8 }}>
-                      <span style={{ background: "rgba(129,128,224,0.10)", color: "#8180e0", padding: "3px 12px", borderRadius: 12, fontSize: 12, fontWeight: 700 }}>
+                      <span style={{ background: "rgba(44,187,223,0.10)", color: "#2cbbdf", padding: "3px 12px", borderRadius: 12, fontSize: 12, fontWeight: 700 }}>
                         {post.category}
                       </span>
                     </div>

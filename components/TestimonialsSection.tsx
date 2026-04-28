@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 
 interface Testimonial {
   name: string;
@@ -68,25 +69,25 @@ export default function TestimonialsSection({
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid slice"
       >
-        <circle cx="200" cy="100" r="180" fill="rgba(129,128,224,0.05)" />
-        <circle cx="1300" cy="450" r="200" fill="rgba(129,128,224,0.05)" />
-        <circle cx="1380" cy="120" r="100" fill="none" stroke="rgba(129,128,224,0.08)" strokeWidth="22" />
+        <circle cx="200" cy="100" r="180" fill="rgba(44,187,223,0.05)" />
+        <circle cx="1300" cy="450" r="200" fill="rgba(44,187,223,0.05)" />
+        <circle cx="1380" cy="120" r="100" fill="none" stroke="rgba(44,187,223,0.08)" strokeWidth="22" />
         <circle cx="60" cy="480" r="100" fill="none" stroke="rgba(240,115,74,0.07)" strokeWidth="22" />
         {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-          <circle key={i} cx={680 + (i % 3) * 30} cy={60 + Math.floor(i / 3) * 30} r="4" fill="rgba(129,128,224,0.10)" />
+          <circle key={i} cx={680 + (i % 3) * 30} cy={60 + Math.floor(i / 3) * 30} r="4" fill="rgba(44,187,223,0.10)" />
         ))}
-        <path d="M0 500 Q360 460 720 500 Q1080 540 1440 500" fill="none" stroke="rgba(129,128,224,0.07)" strokeWidth="2" />
+        <path d="M0 500 Q360 460 720 500 Q1080 540 1440 500" fill="none" stroke="rgba(44,187,223,0.07)" strokeWidth="2" />
         {/* Large quote marks */}
-        <text x="40" y="200" fontSize="160" fill="rgba(129,128,224,0.04)" fontFamily="Georgia,serif">&ldquo;</text>
-        <text x="1260" y="420" fontSize="160" fill="rgba(129,128,224,0.04)" fontFamily="Georgia,serif">&rdquo;</text>
+        <text x="40" y="200" fontSize="160" fill="rgba(44,187,223,0.04)" fontFamily="Georgia,serif">&ldquo;</text>
+        <text x="1260" y="420" fontSize="160" fill="rgba(44,187,223,0.04)" fontFamily="Georgia,serif">&rdquo;</text>
       </svg>
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div className="row">
           <div className="col-lg-12 text-center">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
-              <i className="icofont-star" style={{ color: "#8180e0", fontSize: 14 }}></i>
-              <span style={{ fontSize: 13, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Testimonials</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
+              <i className="icofont-star" style={{ color: "#2cbbdf", fontSize: 14 }}></i>
+              <span style={{ fontSize: 13, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Testimonials</span>
             </div>
             <h2 className="sec_title">
               How to say our most
@@ -110,7 +111,7 @@ export default function TestimonialsSection({
               </div>
 
               <div className="singleCustomer">
-                <Image src={t.avatar} alt={t.name} width={80} height={80} />
+                <DynamicImage src={t.avatar} alt={t.name} width={80} height={80} />
                 <div className="quote_img">
                   <Image src="/images/quote.png" alt="quote" width={40} height={30} />
                 </div>
@@ -126,12 +127,12 @@ export default function TestimonialsSection({
               {/* Navigation with pill style */}
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 14 }}>
                 <button onClick={prev} aria-label="Previous"
-                  style={{ width: 40, height: 40, borderRadius: "50%", border: "2px solid #8180e0", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <i className="flaticon-back" style={{ color: "#8180e0", fontSize: 16 }}></i>
+                  style={{ width: 40, height: 40, borderRadius: "50%", border: "2px solid #2cbbdf", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <i className="flaticon-back" style={{ color: "#2cbbdf", fontSize: 16 }}></i>
                 </button>
                 <span style={{ fontSize: 14, color: "#aaa" }}>{current + 1} / {list.length}</span>
                 <button onClick={next} aria-label="Next"
-                  style={{ width: 40, height: 40, borderRadius: "50%", background: "#8180e0", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(129,128,224,0.4)" }}>
+                  style={{ width: 40, height: 40, borderRadius: "50%", background: "#2cbbdf", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(44,187,223,0.4)" }}>
                   <i className="flaticon-next" style={{ color: "#fff", fontSize: 16 }}></i>
                 </button>
               </div>

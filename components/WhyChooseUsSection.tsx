@@ -12,8 +12,8 @@ const defaultFeatures: WhyItem[] = [
     icon: "icofont-flash",
     title: "Lightning Fast Approval",
     desc: "Get your loan approved within 24 hours. No lengthy paperwork, no endless waiting.",
-    color: "#8180e0",
-    bg: "rgba(129,128,224,0.10)",
+    color: "#2cbbdf",
+    bg: "rgba(44,187,223,0.10)",
     order: 1,
   },
   { _id:"2", icon: "icofont-shield-alt",    title: "Bank-Level Security",   desc: "Your data is protected by 256-bit SSL encryption and strict privacy protocols.", color: "#27ae60", bg: "rgba(39,174,96,0.10)",   order: 2 },
@@ -46,12 +46,12 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
         preserveAspectRatio="xMidYMid slice"
       >
         {/* Large concentric circles — centre */}
-        <circle cx="720" cy="350" r="380" fill="none" stroke="rgba(129,128,224,0.04)" strokeWidth="70" />
-        <circle cx="720" cy="350" r="260" fill="none" stroke="rgba(129,128,224,0.04)" strokeWidth="50" />
-        <circle cx="720" cy="350" r="140" fill="none" stroke="rgba(129,128,224,0.04)" strokeWidth="30" />
+        <circle cx="720" cy="350" r="380" fill="none" stroke="rgba(44,187,223,0.04)" strokeWidth="70" />
+        <circle cx="720" cy="350" r="260" fill="none" stroke="rgba(44,187,223,0.04)" strokeWidth="50" />
+        <circle cx="720" cy="350" r="140" fill="none" stroke="rgba(44,187,223,0.04)" strokeWidth="30" />
 
         {/* Top-left filled blob */}
-        <ellipse cx="-60" cy="-40" rx="280" ry="200" fill="rgba(129,128,224,0.05)" />
+        <ellipse cx="-60" cy="-40" rx="280" ry="200" fill="rgba(44,187,223,0.05)" />
 
         {/* Bottom-right blob */}
         <ellipse cx="1500" cy="720" rx="300" ry="220" fill="rgba(240,115,74,0.05)" />
@@ -59,19 +59,19 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
         {/* Dot grid — top half */}
         {Array.from({ length: 5 }).map((_, r) =>
           Array.from({ length: 12 }).map((_, c) => (
-            <circle key={`tg${r}-${c}`} cx={100 + c * 110} cy={60 + r * 55} r="3" fill="rgba(129,128,224,0.07)" />
+            <circle key={`tg${r}-${c}`} cx={100 + c * 110} cy={60 + r * 55} r="3" fill="rgba(44,187,223,0.07)" />
           ))
         )}
 
         {/* Dot grid — bottom half */}
         {Array.from({ length: 3 }).map((_, r) =>
           Array.from({ length: 12 }).map((_, c) => (
-            <circle key={`bg${r}-${c}`} cx={100 + c * 110} cy={530 + r * 55} r="3" fill="rgba(129,128,224,0.07)" />
+            <circle key={`bg${r}-${c}`} cx={100 + c * 110} cy={530 + r * 55} r="3" fill="rgba(44,187,223,0.07)" />
           ))
         )}
 
         {/* Diagonal dashes */}
-        <line x1="0" y1="700" x2="200" y2="400" stroke="rgba(129,128,224,0.06)" strokeWidth="1.5" strokeDasharray="6 12" />
+        <line x1="0" y1="700" x2="200" y2="400" stroke="rgba(44,187,223,0.06)" strokeWidth="1.5" strokeDasharray="6 12" />
         <line x1="1440" y1="0" x2="1200" y2="300" stroke="rgba(240,115,74,0.06)" strokeWidth="1.5" strokeDasharray="6 12" />
 
         {/* Orange accent bubbles */}
@@ -81,19 +81,19 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
         <circle cx="110"  cy="648" r="8"  fill="rgba(240,115,74,0.20)" />
 
         {/* Thin cross marks */}
-        <line x1="1100" y1="60"  x2="1120" y2="80"  stroke="rgba(129,128,224,0.15)" strokeWidth="2" />
-        <line x1="1120" y1="60"  x2="1100" y2="80"  stroke="rgba(129,128,224,0.15)" strokeWidth="2" />
-        <line x1="340"  y1="620" x2="360"  y2="640" stroke="rgba(129,128,224,0.15)" strokeWidth="2" />
-        <line x1="360"  y1="620" x2="340"  y2="640" stroke="rgba(129,128,224,0.15)" strokeWidth="2" />
+        <line x1="1100" y1="60"  x2="1120" y2="80"  stroke="rgba(44,187,223,0.15)" strokeWidth="2" />
+        <line x1="1120" y1="60"  x2="1100" y2="80"  stroke="rgba(44,187,223,0.15)" strokeWidth="2" />
+        <line x1="340"  y1="620" x2="360"  y2="640" stroke="rgba(44,187,223,0.15)" strokeWidth="2" />
+        <line x1="360"  y1="620" x2="340"  y2="640" stroke="rgba(44,187,223,0.15)" strokeWidth="2" />
       </svg>
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         {/* ── Heading ── */}
         <div className="row">
           <div className="col-lg-12 text-center">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
-              <i className="icofont-star" style={{ color: "#8180e0", fontSize: 14 }}></i>
-              <span style={{ fontSize: 13, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Why Payloan</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
+              <i className="icofont-star" style={{ color: "#2cbbdf", fontSize: 14 }}></i>
+              <span style={{ fontSize: 13, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Why Payloan</span>
             </div>
             <h2 className="sec_title">
               Why thousands of people
@@ -123,7 +123,7 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
                   overflow: "hidden",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(129,128,224,0.18)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(44,187,223,0.18)";
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
                 }}
                 onMouseLeave={e => {
@@ -150,7 +150,7 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
         <div className="row" style={{ marginTop: 20 }}>
           <div className="col-lg-12">
             <div style={{
-              background: "linear-gradient(135deg, #8180e0 0%, #a079e0 100%)",
+              background: "linear-gradient(135deg, #2cbbdf 0%, #38cfe8 100%)",
               borderRadius: 16,
               padding: "28px 40px",
               display: "flex",
@@ -158,7 +158,7 @@ export default function WhyChooseUsSection({ features }: WhyChooseUsSectionProps
               alignItems: "center",
               justifyContent: "space-between",
               gap: 16,
-              boxShadow: "0 8px 32px rgba(129,128,224,0.35)",
+              boxShadow: "0 8px 32px rgba(44,187,223,0.35)",
               position: "relative",
               overflow: "hidden",
             }}>

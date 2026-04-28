@@ -60,7 +60,7 @@ export default function JoditField({ value, onChange, placeholder }: JoditFieldP
   );
 
   return (
-    <div style={{ border: "1.5px solid #e0e0f0", borderRadius: 8, overflow: "hidden" }}>
+    <div style={{ border: "1.5px solid #cceffa", borderRadius: 8, overflow: "hidden" }}>
       <JoditEditor
         ref={editor}
         value={value}

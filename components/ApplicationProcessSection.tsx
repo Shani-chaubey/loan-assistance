@@ -19,14 +19,14 @@ export default function ApplicationProcessSection({ steps }: ApplicationProcessS
     <section className="commonSection applicatioProces" style={{ position: "relative", overflow: "hidden" }}>
       {/* ── SVG background ── */}
       <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <path d="M0 0 Q360 50 720 0 Q1080 -50 1440 0 L1440 60 Q1080 110 720 60 Q360 10 0 60 Z" fill="rgba(129,128,224,0.05)" />
-        <circle cx="80" cy="120" r="130" fill="none" stroke="rgba(129,128,224,0.07)" strokeWidth="28" />
+        <path d="M0 0 Q360 50 720 0 Q1080 -50 1440 0 L1440 60 Q1080 110 720 60 Q360 10 0 60 Z" fill="rgba(44,187,223,0.05)" />
+        <circle cx="80" cy="120" r="130" fill="none" stroke="rgba(44,187,223,0.07)" strokeWidth="28" />
         <circle cx="1360" cy="500" r="160" fill="none" stroke="rgba(240,115,74,0.06)" strokeWidth="32" />
-        <path d="M 320 340 C 480 260, 600 260, 720 340 C 840 420, 960 420, 1120 340" fill="none" stroke="rgba(129,128,224,0.15)" strokeWidth="2" strokeDasharray="8 10" />
-        <polygon points="718,330 726,345 710,345" fill="rgba(129,128,224,0.20)" />
-        <polygon points="1118,330 1126,345 1110,345" fill="rgba(129,128,224,0.20)" />
+        <path d="M 320 340 C 480 260, 600 260, 720 340 C 840 420, 960 420, 1120 340" fill="none" stroke="rgba(44,187,223,0.15)" strokeWidth="2" strokeDasharray="8 10" />
+        <polygon points="718,330 726,345 710,345" fill="rgba(44,187,223,0.20)" />
+        <polygon points="1118,330 1126,345 1110,345" fill="rgba(44,187,223,0.20)" />
         {[0,1,2,3,4,5,6,7,8].map(i => (
-          <circle key={`cl${i}`} cx={600 + (i%3)*28} cy={520 + Math.floor(i/3)*28} r="4" fill="rgba(129,128,224,0.10)" />
+          <circle key={`cl${i}`} cx={600 + (i%3)*28} cy={520 + Math.floor(i/3)*28} r="4" fill="rgba(44,187,223,0.10)" />
         ))}
         <circle cx="1300" cy="100" r="18" fill="rgba(240,115,74,0.12)" />
         <circle cx="1270" cy="130" r="10" fill="rgba(240,115,74,0.18)" />
@@ -35,9 +35,9 @@ export default function ApplicationProcessSection({ steps }: ApplicationProcessS
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div className="row">
           <div className="col-lg-12 text-center">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
-              <i className="icofont-rocket-alt-2" style={{ color: "#8180e0", fontSize: 16 }}></i>
-              <span style={{ fontSize: 13, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Simple {items.length} Steps</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
+              <i className="icofont-rocket-alt-2" style={{ color: "#2cbbdf", fontSize: 16 }}></i>
+              <span style={{ fontSize: 13, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Simple {items.length} Steps</span>
             </div>
             <h2 className="sec_title">Fast and very easy<br />application process here</h2>
             <p className="sec_desc">We are here to help you when you need your financial<br />support, then we are help you.</p>
@@ -48,7 +48,7 @@ export default function ApplicationProcessSection({ steps }: ApplicationProcessS
           {items.map((step, i) => (
             <div key={step._id} className="col-lg-4 col-md-6">
               <div className={`singleProcess_2 ${marginClasses[i] ?? ""}`} style={{ position: "relative" }}>
-                <div style={{ position: "absolute", top: -18, right: 20, width: 44, height: 44, borderRadius: "50%", background: "#8180e0", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(129,128,224,0.45)", zIndex: 2 }}>
+                <div style={{ position: "absolute", top: -18, right: 20, width: 44, height: 44, borderRadius: "50%", background: "#2cbbdf", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(44,187,223,0.45)", zIndex: 2 }}>
                   <i className={step.icon} style={{ color: "#fff", fontSize: 20 }}></i>
                 </div>
                 <div className="flipper">

@@ -48,15 +48,15 @@ export default function AdminLoginPage() {
     }}>
       {/* SVG background */}
       <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <circle cx="-80"  cy="200" r="320" fill="rgba(129,128,224,0.08)" />
+        <circle cx="-80"  cy="200" r="320" fill="rgba(44,187,223,0.08)" />
         <circle cx="1520" cy="700" r="320" fill="rgba(240,115,74,0.07)" />
-        <circle cx="720"  cy="450" r="200" fill="none" stroke="rgba(129,128,224,0.07)" strokeWidth="50" />
+        <circle cx="720"  cy="450" r="200" fill="none" stroke="rgba(44,187,223,0.07)" strokeWidth="50" />
         {Array.from({ length: 6 }).map((_, r) =>
           Array.from({ length: 14 }).map((_, c) => (
-            <circle key={`${r}-${c}`} cx={60 + c * 100} cy={60 + r * 130} r="2" fill="rgba(129,128,224,0.10)" />
+            <circle key={`${r}-${c}`} cx={60 + c * 100} cy={60 + r * 130} r="2" fill="rgba(44,187,223,0.10)" />
           ))
         )}
-        <line x1="0"    y1="900" x2="300"  y2="400" stroke="rgba(129,128,224,0.05)" strokeWidth="1" strokeDasharray="8 16" />
+        <line x1="0"    y1="900" x2="300"  y2="400" stroke="rgba(44,187,223,0.05)" strokeWidth="1" strokeDasharray="8 16" />
         <line x1="1440" y1="0"   x2="1140" y2="500" stroke="rgba(240,115,74,0.05)"  strokeWidth="1" strokeDasharray="8 16" />
       </svg>
 
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
       }}>
         {/* Logo mark */}
         <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <div style={{ width: 60, height: 60, borderRadius: 16, background: "linear-gradient(135deg,#8180e0,#a079e0)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px" }}>
+          <div style={{ width: 60, height: 60, borderRadius: 16, background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px" }}>
             <i className="icofont-bank" style={{ color: "#fff", fontSize: 28 }}></i>
           </div>
           <h1 style={{ color: "#fff", fontSize: 24, fontWeight: 800, margin: "0 0 6px" }}>Payloan Admin</h1>
@@ -115,7 +115,7 @@ export default function AdminLoginPage() {
                   boxSizing: "border-box",
                   transition: "border-color 0.2s",
                 }}
-                onFocus={e => (e.target.style.borderColor = "#8180e0")}
+                onFocus={e => (e.target.style.borderColor = "#2cbbdf")}
                 onBlur={e => (e.target.style.borderColor = "rgba(255,255,255,0.12)")}
               />
             </div>
@@ -145,7 +145,7 @@ export default function AdminLoginPage() {
                   boxSizing: "border-box",
                   transition: "border-color 0.2s",
                 }}
-                onFocus={e => (e.target.style.borderColor = "#8180e0")}
+                onFocus={e => (e.target.style.borderColor = "#2cbbdf")}
                 onBlur={e => (e.target.style.borderColor = "rgba(255,255,255,0.12)")}
               />
               <button
@@ -165,7 +165,7 @@ export default function AdminLoginPage() {
             style={{
               width: "100%",
               padding: "14px",
-              background: loading ? "rgba(129,128,224,0.50)" : "linear-gradient(135deg,#8180e0,#a079e0)",
+              background: loading ? "rgba(44,187,223,0.50)" : "linear-gradient(135deg,#2cbbdf,#38cfe8)",
               border: "none",
               borderRadius: 12,
               color: "#fff",
@@ -176,7 +176,7 @@ export default function AdminLoginPage() {
               alignItems: "center",
               justifyContent: "center",
               gap: 8,
-              boxShadow: loading ? "none" : "0 8px 24px rgba(129,128,224,0.40)",
+              boxShadow: loading ? "none" : "0 8px 24px rgba(44,187,223,0.40)",
               transition: "all 0.2s",
             }}
           >

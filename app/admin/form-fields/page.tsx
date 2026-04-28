@@ -152,11 +152,11 @@ export default function AdminFormFieldsPage() {
           onClick={save}
           disabled={saving}
           style={{
-            background: "linear-gradient(135deg,#8180e0,#a079e0)", color: "#fff",
+            background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", color: "#fff",
             border: "none", padding: "10px 24px", borderRadius: 10,
             fontWeight: 700, cursor: saving ? "not-allowed" : "pointer",
             fontSize: 14, opacity: saving ? 0.7 : 1,
-            boxShadow: "0 4px 12px rgba(129,128,224,0.30)",
+            boxShadow: "0 4px 12px rgba(44,187,223,0.30)",
           }}
         >
           {saving ? "Saving…" : "Save Changes"}
@@ -216,13 +216,13 @@ function Toggle({ on, locked, color, onClick }: { on: boolean; locked: boolean; 
 }
 
 const arrowBtn: React.CSSProperties = {
-  border: "1px solid #e0e0f0", background: "#f8f8fb",
+  border: "1px solid #cceffa", background: "#f8f8fb",
   color: "#666", width: 26, height: 26, borderRadius: 6,
   cursor: "pointer", fontSize: 11, padding: 0,
 };
 
 const inputStyle: React.CSSProperties = {
-  border: "1px solid #e0e0f0", borderRadius: 7,
+  border: "1px solid #cceffa", borderRadius: 7,
   padding: "6px 10px", fontSize: 13, width: "100%",
   boxSizing: "border-box", outline: "none",
 };

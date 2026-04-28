@@ -108,7 +108,7 @@ export default function AdminApplicationsPage() {
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           {["all", ...STATUSES].map(s => (
-            <button key={s} onClick={() => setFilter(s)} style={{ padding: "7px 14px", borderRadius: 8, border: "1.5px solid", borderColor: filter === s ? "#8180e0" : "#e0e0f0", background: filter === s ? "rgba(129,128,224,0.10)" : "#fff", color: filter === s ? "#8180e0" : "#555", fontWeight: 600, cursor: "pointer", textTransform: "capitalize", fontSize: 13 }}>
+            <button key={s} onClick={() => setFilter(s)} style={{ padding: "7px 14px", borderRadius: 8, border: "1.5px solid", borderColor: filter === s ? "#2cbbdf" : "#cceffa", background: filter === s ? "rgba(44,187,223,0.10)" : "#fff", color: filter === s ? "#2cbbdf" : "#555", fontWeight: 600, cursor: "pointer", textTransform: "capitalize", fontSize: 13 }}>
               {s === "all" ? "All" : s}
             </button>
           ))}

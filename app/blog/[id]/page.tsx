@@ -5,6 +5,7 @@ import BlogSidebar from "@/components/BlogSidebar";
 import Footer from "@/components/Footer";
 import Copyright from "@/components/Copyright";
 import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 import Link from "next/link";
 import { getBlogPost, getBlogPosts, getSettings } from "@/lib/data";
 import { notFound } from "next/navigation";
@@ -48,11 +49,11 @@ export default async function SingleBlogPage({
             <div className="col-lg-9 col-md-8">
               <div className="singleBlogDetails">
                 <div className="blogThumb">
-                  <Image src={post.image || "/images/blog/1.jpg"} alt={post.title} width={800} height={400} />
+                  <DynamicImage src={post.image || "/images/blog/1.jpg"} alt={post.title} width={800} height={400} />
                 </div>
                 <div className="blogDetail">
                   <div style={{ marginBottom: 10 }}>
-                    <span style={{ background: "rgba(129,128,224,0.10)", color: "#8180e0", padding: "3px 12px", borderRadius: 12, fontSize: 12, fontWeight: 700 }}>
+                    <span style={{ background: "rgba(44,187,223,0.10)", color: "#2cbbdf", padding: "3px 12px", borderRadius: 12, fontSize: 12, fontWeight: 700 }}>
                       {post.category}
                     </span>
                   </div>
@@ -83,7 +84,7 @@ export default async function SingleBlogPage({
                       {relatedPosts.map((rp) => (
                         <div key={rp._id} className="col-md-6">
                           <div className="SRPost">
-                            <Image src={rp.image || "/images/blog/1.jpg"} alt={rp.title} width={350} height={220} />
+                            <DynamicImage src={rp.image || "/images/blog/1.jpg"} alt={rp.title} width={350} height={220} />
                             <h4><Link href={`/blog/${rp.slug ?? rp._id}`}>{rp.title}</Link></h4>
                             <p>{rp.excerpt}</p>
                           </div>

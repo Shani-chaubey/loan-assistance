@@ -11,14 +11,14 @@ function BlogCard({ item, onEdit, onDelete }: { item: Record<string, unknown>; o
             <span style={{ background: item.published ? "rgba(39,174,96,0.12)" : "rgba(255,152,0,0.12)", color: item.published ? "#27ae60" : "#ff9800", padding: "2px 10px", borderRadius: 20, fontSize: 11, fontWeight: 700 }}>
               {item.published ? "Published" : "Draft"}
             </span>
-            <span style={{ background: "rgba(129,128,224,0.10)", color: "#8180e0", padding: "2px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600 }}>{item.category as string}</span>
+            <span style={{ background: "rgba(44,187,223,0.10)", color: "#2cbbdf", padding: "2px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600 }}>{item.category as string}</span>
           </div>
           <h4 style={{ margin: 0, fontSize: 14, lineHeight: 1.4 }}>{item.title as string}</h4>
           <p style={{ margin: "4px 0 0", fontSize: 12, color: "#aaa" }}>By {item.author as string} · {item.date as string}</p>
         </div>
       </div>
       <div style={{ display: "flex", gap: 6, marginTop: 12 }}>
-        <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(129,128,224,0.10)", color: "#8180e0", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <button onClick={onEdit} title="Edit" style={{ border: "none", background: "rgba(44,187,223,0.10)", color: "#2cbbdf", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         </button>
         <button onClick={onDelete} title="Delete" style={{ border: "none", background: "rgba(229,57,53,0.10)", color: "#e53935", width: 34, height: 34, borderRadius: 8, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>

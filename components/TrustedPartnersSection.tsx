@@ -7,7 +7,7 @@ interface TrustedPartnersSectionProps {
   partners?: PartnerItem[];
 }
 
-const accentColors = ["#8180e0", "#f0734a", "#27ae60", "#2196f3", "#e91e8c", "#ff9800"];
+const accentColors = ["#2cbbdf", "#f0734a", "#27ae60", "#2196f3", "#e91e8c", "#ff9800"];
 
 export default function TrustedPartnersSection({ partners: allItems }: TrustedPartnersSectionProps) {
   const items = allItems ?? [];
@@ -21,19 +21,19 @@ export default function TrustedPartnersSection({ partners: allItems }: TrustedPa
       {/* ── PARTNERS STRIP ── */}
       <section style={{ background: "#fff", padding: "56px 0", position: "relative", overflow: "hidden", borderTop: "1px solid #f0f0f8", borderBottom: "1px solid #f0f0f8" }}>
         <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <ellipse cx="0"    cy="90" rx="160" ry="120" fill="rgba(129,128,224,0.04)" />
+          <ellipse cx="0"    cy="90" rx="160" ry="120" fill="rgba(44,187,223,0.04)" />
           <ellipse cx="1440" cy="90" rx="160" ry="120" fill="rgba(240,115,74,0.04)" />
-          {Array.from({ length: 18 }).map((_, i) => (<circle key={i} cx={80 + i * 76} cy={20} r="2.5" fill="rgba(129,128,224,0.07)" />))}
-          {Array.from({ length: 18 }).map((_, i) => (<circle key={`b${i}`} cx={80 + i * 76} cy={160} r="2.5" fill="rgba(129,128,224,0.07)" />))}
+          {Array.from({ length: 18 }).map((_, i) => (<circle key={i} cx={80 + i * 76} cy={20} r="2.5" fill="rgba(44,187,223,0.07)" />))}
+          {Array.from({ length: 18 }).map((_, i) => (<circle key={`b${i}`} cx={80 + i * 76} cy={160} r="2.5" fill="rgba(44,187,223,0.07)" />))}
         </svg>
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="row align-items-center">
             <div className="col-lg-3">
               <div style={{ marginBottom: 20 }}>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "5px 14px", borderRadius: 20, marginBottom: 10 }}>
-                  <i className="icofont-handshake" style={{ color: "#8180e0", fontSize: 15 }}></i>
-                  <span style={{ fontSize: 12, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Banking Partners</span>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "5px 14px", borderRadius: 20, marginBottom: 10 }}>
+                  <i className="icofont-handshake" style={{ color: "#2cbbdf", fontSize: 15 }}></i>
+                  <span style={{ fontSize: 12, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Banking Partners</span>
                 </div>
                 <h3 style={{ fontSize: 22, fontWeight: 700, color: "#222", margin: 0 }}>Trusted by leading banks</h3>
               </div>
@@ -43,7 +43,7 @@ export default function TrustedPartnersSection({ partners: allItems }: TrustedPa
                 {bankPartners.map(p => (
                   <div key={p._id}
                     style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 22px", border: "1.5px solid #f0f0f8", borderRadius: 12, background: "#fafafa", transition: "all 0.3s" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "#8180e0"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(129,128,224,0.15)"; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "#2cbbdf"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(44,187,223,0.15)"; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "#f0f0f8"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}
                   >
                     <div style={{ width: 38, height: 38, borderRadius: 10, background: `${p.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -61,20 +61,20 @@ export default function TrustedPartnersSection({ partners: allItems }: TrustedPa
       {/* ── AWARDS + CERTIFICATIONS + CTA ── */}
       <section className="commonSection" style={{ background: "#f8f8fb", position: "relative", overflow: "hidden" }}>
         <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} viewBox="0 0 1440 640" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <circle cx="100"  cy="100" r="180" fill="rgba(129,128,224,0.05)" />
+          <circle cx="100"  cy="100" r="180" fill="rgba(44,187,223,0.05)" />
           <circle cx="1340" cy="540" r="200" fill="rgba(240,115,74,0.05)" />
-          <circle cx="1380" cy="100" r="110" fill="none" stroke="rgba(129,128,224,0.08)" strokeWidth="24" />
+          <circle cx="1380" cy="100" r="110" fill="none" stroke="rgba(44,187,223,0.08)" strokeWidth="24" />
           <circle cx="60"   cy="540" r="110" fill="none" stroke="rgba(240,115,74,0.07)"  strokeWidth="24" />
-          {[0,1,2,3,4,5,6,7,8].map(i => (<circle key={i} cx={650 + (i%3)*30} cy={70 + Math.floor(i/3)*30} r="4" fill="rgba(129,128,224,0.10)" />))}
-          <path d="M0 580 Q360 540 720 580 Q1080 620 1440 580" fill="none" stroke="rgba(129,128,224,0.07)" strokeWidth="2" />
+          {[0,1,2,3,4,5,6,7,8].map(i => (<circle key={i} cx={650 + (i%3)*30} cy={70 + Math.floor(i/3)*30} r="4" fill="rgba(44,187,223,0.10)" />))}
+          <path d="M0 580 Q360 540 720 580 Q1080 620 1440 580" fill="none" stroke="rgba(44,187,223,0.07)" strokeWidth="2" />
         </svg>
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="row">
             <div className="col-lg-12 text-center">
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(129,128,224,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
-                <i className="icofont-badge" style={{ color: "#8180e0", fontSize: 16 }}></i>
-                <span style={{ fontSize: 13, color: "#8180e0", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Recognition</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(44,187,223,0.10)", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>
+                <i className="icofont-badge" style={{ color: "#2cbbdf", fontSize: 16 }}></i>
+                <span style={{ fontSize: 13, color: "#2cbbdf", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Recognition</span>
               </div>
               <h2 className="sec_title">Awards &amp; certifications<br />we are proud of</h2>
               <p className="sec_desc">Industry recognition and international standards that prove<br />our commitment to excellence.</p>
@@ -120,17 +120,17 @@ export default function TrustedPartnersSection({ partners: allItems }: TrustedPa
             <div className="col-lg-12">
               <div style={{ background: "linear-gradient(135deg, #222 0%, #3a3a5c 100%)", borderRadius: 20, padding: "52px 60px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 28, position: "relative", overflow: "hidden", boxShadow: "0 16px 48px rgba(0,0,0,0.15)" }}>
                 <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} viewBox="0 0 1200 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                  <circle cx="-40" cy="90" r="160" fill="rgba(129,128,224,0.12)" />
+                  <circle cx="-40" cy="90" r="160" fill="rgba(44,187,223,0.12)" />
                   <circle cx="1240" cy="90" r="160" fill="rgba(240,115,74,0.10)" />
                   {Array.from({length:6}).map((_,r) => Array.from({length:14}).map((_,c) => (<circle key={`${r}-${c}`} cx={100 + c*80} cy={20 + r*26} r="1.8" fill="rgba(255,255,255,0.05)" />)))}
                 </svg>
                 <div style={{ zIndex: 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-                    <i className="icofont-flash" style={{ color: "#8180e0", fontSize: 22 }}></i>
-                    <span style={{ color: "#8180e0", fontWeight: 700, fontSize: 14, textTransform: "uppercase", letterSpacing: 1 }}>Limited Time Offer</span>
+                    <i className="icofont-flash" style={{ color: "#2cbbdf", fontSize: 22 }}></i>
+                    <span style={{ color: "#2cbbdf", fontWeight: 700, fontSize: 14, textTransform: "uppercase", letterSpacing: 1 }}>Limited Time Offer</span>
                   </div>
                   <h3 style={{ color: "#fff", fontSize: 32, fontWeight: 700, margin: "0 0 10px" }}>
-                    Get <span style={{ color: "#8180e0" }}>0% processing fee</span> on your first loan!
+                    Get <span style={{ color: "#2cbbdf" }}>0% processing fee</span> on your first loan!
                   </h3>
                   <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 16, margin: 0 }}>
                     Apply before December 31 and save up to ₹500 in fees. Limited slots available.

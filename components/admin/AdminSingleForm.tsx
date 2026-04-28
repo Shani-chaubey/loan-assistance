@@ -84,7 +84,7 @@ export default function AdminSingleForm({ title, description, apiPath, fields }:
                     value={form[f.key] ?? ""}
                     onChange={(e) => setForm((p) => ({ ...p, [f.key]: e.target.value }))}
                     placeholder={f.placeholder}
-                    style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, resize: "vertical", outline: "none", boxSizing: "border-box" }}
+                    style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, resize: "vertical", outline: "none", boxSizing: "border-box" }}
                   />
                 ) : (
                   <input
@@ -92,7 +92,7 @@ export default function AdminSingleForm({ title, description, apiPath, fields }:
                     value={form[f.key] ?? ""}
                     onChange={(e) => setForm((p) => ({ ...p, [f.key]: e.target.value }))}
                     placeholder={f.placeholder}
-                    style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0f0", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
+                    style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #cceffa", borderRadius: 8, fontSize: 14, outline: "none", boxSizing: "border-box" }}
                   />
                 )}
               </div>
@@ -100,7 +100,7 @@ export default function AdminSingleForm({ title, description, apiPath, fields }:
           </div>
 
           <div style={{ marginTop: 24, display: "flex", gap: 10 }}>
-            <button type="submit" disabled={saving} style={{ padding: "12px 28px", background: "linear-gradient(135deg,#8180e0,#a079e0)", border: "none", color: "#fff", borderRadius: 10, fontWeight: 700, cursor: "pointer", fontSize: 15 }}>
+            <button type="submit" disabled={saving} style={{ padding: "12px 28px", background: "linear-gradient(135deg,#2cbbdf,#38cfe8)", border: "none", color: "#fff", borderRadius: 10, fontWeight: 700, cursor: "pointer", fontSize: 15 }}>
               {saving ? "Saving…" : "Save Changes"}
             </button>
           </div>

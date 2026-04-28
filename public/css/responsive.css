@@ -59,7 +59,7 @@ License URI:
     }
     .fixedHeader .mobilemenu.active span,
     .fixedHeader .mobilemenu:hover span{
-        background: #8180e0;
+        background: #2cbbdf;
     }
     li.menu-item-has-children span.submenu_toggler {
         position: absolute;
@@ -80,7 +80,7 @@ License URI:
     }
     li.menu-item-has-children span.submenu_toggler.active-span {
         color: #fff;
-        background: #8180e0;
+        background: #2cbbdf;
     }
     .mainmenu{
         margin: 0 -15px;
@@ -164,7 +164,7 @@ License URI:
     }
     .menu_white .mobilemenu.active span, 
     .menu_white .mobilemenu:hover span{
-        background: #8180e0;
+        background: #2cbbdf;
     }
     .menu_white .mainmenu ul ul.sub-menu,
     .menu_white .mainmenu > ul{
@@ -186,7 +186,7 @@ License URI:
     }
     .menu_white li.menu-item-has-children span.submenu_toggler.active-span{
         color: #fff;
-        background: #8180e0;
+        background: #2cbbdf;
     }
     .header_img img{
         width: 100%;
